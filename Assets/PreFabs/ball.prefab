@@ -167,7 +167,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: ac69c683c91a8fb469c10d018585fb00, type: 3}
   - {fileID: 8300000, guid: 2179a4d7e465cbf4194e18f029c19a48, type: 3}
   - {fileID: 8300000, guid: 9894783e298c8824196f09c06e98acc2, type: 3}
-  movementForce: 20
+  slowSpeed: 10
+  nomralSpeed: 20
+  fastSpeed: 30
   maxVelocity: 10
   smallJumpForce: 1500
   mediumJumpForce: 750
@@ -228,6 +230,18 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: largeJumpForce
       value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: nomralSpeed
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: slowSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: fastSpeed
+      value: 30
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

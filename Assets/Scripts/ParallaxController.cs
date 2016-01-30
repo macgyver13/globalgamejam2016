@@ -8,6 +8,7 @@ public class ParallaxController : MonoBehaviour {
 	public Vector3 previousBallPosition;
 	public float scale;
 	public float buffer;
+	public float maxDiff;
 
 	public float smoothTime = 0.1f;    // time for dampen
 	public Vector2 velocity; // speed of camera movement
@@ -22,8 +23,9 @@ public class ParallaxController : MonoBehaviour {
 
 		if ((ballTransform.position.y > topY) || (ballTransform.position.y < bottomY) || 
 			(ballTransform.position.x > topX) || (ballTransform.position.x < bottomX))  {
+
 			Vector3 newPosition = CalculateBackgroundPosition ();
-			print (newPosition);
+//			print (newPosition);
 
 			transform.position = new Vector3 (Mathf.SmoothDamp (_transform.position.x, newPosition.x, ref velocity.x, smoothTime), Mathf.SmoothDamp (_transform.position.y, newPosition.y, ref velocity.y, smoothTime), _transform.position.z);
 		}
@@ -32,6 +34,33 @@ public class ParallaxController : MonoBehaviour {
 	private Vector3 CalculateBackgroundPosition() {
 		float yDiff = previousBallPosition.y - ballTransform.position.y;
 		float xDiff = previousBallPosition.x - ballTransform.position.x;
+
+		if (yDiff < 0) {
+			float testDiff = Mathf.Abs (yDiff);
+			if (testDiff > maxDiff) {
+				yDiff = maxDiff * -1;
+			}
+		} else {
+			if (yDiff > 0) {
+				if (yDiff > maxDiff) {
+					yDiff = maxDiff * -1;
+				}
+			}
+		} 
+
+		if (xDiff < 0) {
+			float testDiff = Mathf.Abs (xDiff);
+			if (testDiff > maxDiff) {
+				xDiff = maxDiff * -1;
+			}
+		} else {
+			if (xDiff > 0) {
+				if (xDiff > maxDiff) {
+					xDiff = maxDiff * -1;
+				}
+			}
+		} 
+
 
 		float yPos = yDiff * scale;
 		float xPos = xDiff * scale;

@@ -76,6 +76,7 @@ public class BallController : MonoBehaviour {
 	{
 		if (coll.gameObject.tag == "Floor")
 		{
+			PerlinShake.instance.PlayShake (0.2f, 10.0f, 0.1f);
 			ContactPoint2D contact = coll.contacts[0];
 			Vector2 direction = (Vector2)transform.position - contact.point;
 			print(direction);
@@ -105,6 +106,7 @@ public class BallController : MonoBehaviour {
 			
 			
 		} else if (coll.gameObject.tag == "Border") {
+			PerlinShake.instance.PlayShake (0.2f, 15.0f, 0.15f);
             gameObject.SetActive(false);
             Instantiate(ballExplosion, transform.position, Quaternion.identity);
             if (GameManager.instance != null)

@@ -129,12 +129,12 @@ public class BallController : MonoBehaviour {
 
     public bool IsOnGround()
     {
-        return isOnGround;
+        return isOnGround || jointConnectTo != null;
     }
 
     public void Jump()
     {
-        if (!isOnGround)
+        if (!IsOnGround())
             return;
         isOnGround = false;
         if (gravityVector.x > 0)

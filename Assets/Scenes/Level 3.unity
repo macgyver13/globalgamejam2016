@@ -270,6 +270,10 @@ Prefab:
       propertyPath: ball
       value: 
       objectReference: {fileID: 874940642}
+    - target: {fileID: 11403664, guid: b01272978e1cb5d4281b476b416e6b7f, type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b01272978e1cb5d4281b476b416e6b7f, type: 2}
   m_IsPrefabParent: 0

@@ -7,6 +7,8 @@ public class BallController : MonoBehaviour {
 	public AudioSource audioSource;
 	
 	public AudioClip[] bounceSounds;
+
+    public float gravityScale = 1f;
 	
 	public float slowSpeed;
 	public float nomralSpeed;
@@ -89,7 +91,24 @@ public class BallController : MonoBehaviour {
 			
 		} else if (coll.gameObject.tag == "Border") {
 			//End scene
-			Application.LoadLevel (Application.loadedLevel);
+            if(GameManager.instance != null)
+            {
+                GameManager.instance.ResetLevel();
+            }
+            else
+            {
+                Application.LoadLevel(Application.loadedLevel);
+            }
+		} else if (coll.gameObject.tag == "End") {
+			//End scene
+            if(GameManager.instance != null)
+            {
+                GameManager.instance.EndLevel();
+            }
+            else
+            {
+                Application.LoadLevel(Application.loadedLevel);
+            }
 		}
 	}
 
@@ -205,22 +224,22 @@ public class BallController : MonoBehaviour {
 	public void NorthGravity()
 	{
         print("gravity north");
-		gravityVector = new Vector3(0.0f, 9.81f, 0.0f);
+		gravityVector = new Vector3(0.0f, 9.81f, 0.0f) * gravityScale;
 	}
 	
 	public void SouthGravity()
 	{
-		gravityVector = new Vector3(0.0f, -9.81f, 0.0f);
+		gravityVector = new Vector3(0.0f, -9.81f, 0.0f) * gravityScale;
 	}
 	
 	public void WestGravity()
 	{
-		gravityVector = new Vector3(-9.81f, 0.0f, 0.0f);
+		gravityVector = new Vector3(-9.81f, 0.0f, 0.0f) * gravityScale;
 	}
 	
 	public void EastGravity()
 	{
-		gravityVector = new Vector3(9.81f, 0.0f, 0.0f);
+		gravityVector = new Vector3(9.81f, 0.0f, 0.0f) * gravityScale;
 	}
 	
 	public void SlowSpeed()

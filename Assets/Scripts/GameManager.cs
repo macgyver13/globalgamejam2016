@@ -1,22 +1,17 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class GameManager : MonoBehaviour {
 
 	public static GameManager instance = null;
 
+    public string[] level;
+
 	public int score;
 	public float totalTime;
 
-	public static GameManager GetInstance()
-	{
-		if(instance == null)
-		{
-			instance = new GameManager();
-		}
-
-		return instance;
-	}
+    int levelIndex = 0;
 
 	//Awake is always called before any Start functions
 	void Awake()
@@ -36,17 +31,19 @@ public class GameManager : MonoBehaviour {
 		//Sets this to not be destroyed when reloading scene
 		DontDestroyOnLoad(gameObject);
 
-		//Get a component reference to the attached BoardManager script
-		//boardScript = GetComponent<BoardManager>();
+        //Get a component reference to the attached BoardManager script
+        //boardScript = GetComponent<BoardManager>();
 
-		//Call the InitGame function to initialize the first level 
-		InitGame();
-	}
+        //Call the InitGame function to initialize the first level 
+        LoadLevel();
+    }
 
-	void InitGame()
+	void LoadLevel()
 	{
-		//Set level, setup scene
-		score = 0;
+        //Set level, setup scene
+        Debug.Log("Loading level: " + level[levelIndex]);
+        SceneManager.LoadScene(level[levelIndex]);
+
 	}
 
 	
@@ -66,10 +63,14 @@ public class GameManager : MonoBehaviour {
 
 	public void ResetLevel(){
 		Debug.Log ("You died");
-	}
+        LoadLevel();
+    }
 
 	public void EndLevel(){
 		Debug.Log ("Level is over");
-		Application.LoadLevel (Application.loadedLevel);
-	}
+        levelIndex++;
+        if (levelIndex > level.Length - 1)
+            levelIndex = 0;
+        LoadLevel();
+    }
 }

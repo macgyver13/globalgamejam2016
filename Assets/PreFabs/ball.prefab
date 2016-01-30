@@ -168,12 +168,11 @@ MonoBehaviour:
   - {fileID: 8300000, guid: ac69c683c91a8fb469c10d018585fb00, type: 3}
   - {fileID: 8300000, guid: 2179a4d7e465cbf4194e18f029c19a48, type: 3}
   - {fileID: 8300000, guid: 9894783e298c8824196f09c06e98acc2, type: 3}
-  force: 0
   movementForce: 20
   maxVelocity: 10
-  smallJumpForce: 0
-  mediumJumpForce: 0
-  largeJumpForce: 0
+  smallJumpForce: 250
+  mediumJumpForce: 500
+  largeJumpForce: 750
 --- !u!212 &21233086
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -218,6 +217,18 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: currentTouch
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: smallJumpForce
+      value: 250
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: mediumJumpForce
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: largeJumpForce
+      value: 750
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

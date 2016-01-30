@@ -162,6 +162,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ballExplosion: {fileID: 176752, guid: 2e732afe4523e2a4ba636df32c7ece1f, type: 2}
+  ballStandin: {fileID: 123126, guid: 98553d54ec5e8ec438720e4362a06e89, type: 2}
   audioSource: {fileID: 8233874}
   bounceSounds:
   - {fileID: 8300000, guid: 44a6f6603cddaaf489fe98b10d52aeff, type: 3}
@@ -248,6 +249,10 @@ Prefab:
       propertyPath: fastSpeed
       value: 30
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: ballStandin
+      value: 
+      objectReference: {fileID: 123126, guid: 98553d54ec5e8ec438720e4362a06e89, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 157348}

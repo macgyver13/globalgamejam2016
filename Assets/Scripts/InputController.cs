@@ -6,7 +6,7 @@ public class InputController : MonoBehaviour {
 	
 	public int currentTouch;
 	
-	public BallController ballController;
+	BallController ballController;
 	
 	private enum Control {
 		Right,
@@ -17,7 +17,8 @@ public class InputController : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
-		currentTouch = -1;
+        ballController = GetComponent<BallController>();
+        currentTouch = -1;
 	}
 	
 	// Update is called once per frame

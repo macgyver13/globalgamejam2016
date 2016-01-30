@@ -16,6 +16,7 @@ public class InputController : MonoBehaviour {
 	void Update () {
 #if (UNITY_IOS || UNITY_ANDROID) && !UNITY_EDITOR
 		foreach (Touch touch in Input.touches) {
+			print ("TOUCH");
 			if (touch.phase != TouchPhase.Ended && touch.phase != TouchPhase.Canceled) {
 				if(!currentTouch) {
 					touch = currentTouch;
@@ -43,9 +44,11 @@ public class InputController : MonoBehaviour {
 	void CaculateTouch(Touch touch) {
 		float mid = Screen.width * 0.5f;
 		if (touch.position.x < mid) {
+			print("LEFT");
 			Left ();
 		}
 		else {
+			print("RIGHT");
 			Right ();
 		}
 	}

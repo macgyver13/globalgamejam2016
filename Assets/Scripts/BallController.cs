@@ -2,6 +2,9 @@
 using System.Collections;
 
 public class BallController : MonoBehaviour {
+    public AudioSource audioSource;
+
+    public AudioClip[] bounceSounds;
 
     public float[] force;
 
@@ -20,10 +23,18 @@ public class BallController : MonoBehaviour {
 		rigidbody.velocity = Vector2.ClampMagnitude(rigidbody.velocity, maxVelocity);
 	}
 
+    void PlayBounceSound()
+    {
+        int index = Random.Range(0, bounceSounds.Length);
+        audioSource.clip = bounceSounds[index];
+        audioSource.Play();
+    }
+
     void OnCollisionEnter2D(Collision2D coll)
     {
         if (coll.gameObject.tag == "Floor")
         {
+            PlayBounceSound();
             rigidbody = transform.GetComponent<Rigidbody2D>();
 //            if (rigidbody.velocity.y < 0)
 //            {
@@ -33,7 +44,10 @@ public class BallController : MonoBehaviour {
                 if (count >= force.Length)
                     count = 0;
 //            }
-        }
+        } else if (coll.gameObject.tag == "Border") {
+			//End scene
+			Application.LoadLevel (Application.loadedLevel);
+		}
     }
 
 	public void Right() {

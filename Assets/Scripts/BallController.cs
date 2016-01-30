@@ -22,11 +22,14 @@ public class BallController : MonoBehaviour {
         if (coll.gameObject.tag == "Floor")
         {
             rigidbody = transform.GetComponent<Rigidbody2D>();
-            rigidbody.velocity = new Vector2(rigidbody.velocity.x, 0);
-            rigidbody.AddForce(Vector2.up * force[count]);
-            count++;
-            if (count >= force.Length)
-                count = 0;
+            if (rigidbody.velocity.y < 0)
+            {
+                rigidbody.velocity = new Vector2(rigidbody.velocity.x, 0);
+                rigidbody.AddForce(Vector2.up * force[count]);
+                count++;
+                if (count >= force.Length)
+                    count = 0;
+            }
         }
     }
 

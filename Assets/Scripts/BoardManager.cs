@@ -75,7 +75,7 @@ public class BoardManager : MonoBehaviour {
                  BallController.instance.Jump();
                  break;
             case ballModifier.gravityNorth:
-                BallController.instance.NorthGravity();
+                BallController.instance.NorthGravity();                
                 break;
             case ballModifier.gravityEast:
 			    BallController.instance.EastGravity ();

@@ -61,7 +61,7 @@ public class InputController : MonoBehaviour {
 	
 	
 	void Right() {
-        if (BoardManager.gravityDirection == "north")
+        if (BallController.instance.gravityVector.y > 0)
             ballController.Left();
         else
             ballController.Right();
@@ -69,7 +69,7 @@ public class InputController : MonoBehaviour {
 	}
 	
 	void Left () {
-        if (BoardManager.gravityDirection == "north")
+        if (BallController.instance.gravityVector.y > 0)
             ballController.Right();
         else
             ballController.Left();

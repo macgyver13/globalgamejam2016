@@ -171,9 +171,9 @@ MonoBehaviour:
   nomralSpeed: 20
   fastSpeed: 30
   maxVelocity: 10
-  smallJumpForce: 250
-  mediumJumpForce: 500
-  largeJumpForce: 750
+  smallJumpForce: 1500
+  mediumJumpForce: 750
+  largeJumpForce: 1000
 --- !u!212 &21233086
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -221,15 +221,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: smallJumpForce
-      value: 250
+      value: 1500
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: mediumJumpForce
-      value: 500
+      value: 750
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: largeJumpForce
-      value: 750
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: nomralSpeed

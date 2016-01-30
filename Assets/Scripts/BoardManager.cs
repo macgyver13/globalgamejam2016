@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 
 public enum ballModifier{
+    jump,
 	bounceNone, bounceShort, bounceNormal, bounceHigh,
 	sizeSmall, sizeNormal, sizeLarge,
 	speedSlow, speedNormal, speedFast,
@@ -25,8 +26,8 @@ public class BoardManager : MonoBehaviour {
 	}
 
 	void Start(){
-		ResetBoard ();
-		SetModifier ();
+		//ResetBoard ();
+		//SetModifier ();
 	}
 
 	void ResetBoard(){
@@ -36,23 +37,29 @@ public class BoardManager : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		totalTime += Time.deltaTime;
+        //totalTime += Time.deltaTime;
 
-		//Debug.Log("Update Time = " + totalTime + " ____ " + modifierDuration * modifierList.Length);
-		if (totalTime >= modifierDuration * modifierList.Length) {
-			//End level
-			//Application.LoadLevel (Application.loadedLevel);
-			ResetBoard();
-			GameManager.instance.EndLevel();
-		}
-		if (totalTime > modifierDuration * (modifierPosition + 1)) {
-			//send the calculated position
+        ////Debug.Log("Update Time = " + totalTime + " ____ " + modifierDuration * modifierList.Length);
+        //if (totalTime >= modifierDuration * modifierList.Length) {
+        //	//End level
+        //	//Application.LoadLevel (Application.loadedLevel);
+        //	ResetBoard();
+        //	GameManager.instance.EndLevel();
+        //}
+        //if (totalTime > modifierDuration * (modifierPosition + 1)) {
+        //	//send the calculated position
 
-			Debug.Log ("Set Modifier" + modifierList [modifierPosition]);
-			modifierPosition += 1;
+        //	Debug.Log ("Set Modifier" + modifierList [modifierPosition]);
+        //	modifierPosition += 1;
+        //          SetModifier();
+        //      }
+
+        if(Input.GetKeyDown(KeyCode.Space) && BallController.instance.IsOnGround())
+        {
+            Debug.Log("Set Modifier" + modifierList[modifierPosition]);
             SetModifier();
+            modifierPosition += 1;
         }
-
 	}
 
 
@@ -66,49 +73,52 @@ public class BoardManager : MonoBehaviour {
 
 	void SetModifier(){
 		switch (modifierList [modifierPosition]) {
-		case ballModifier.gravityNorth:
-			BallController.instance.NorthGravity ();
-			break;
-		case ballModifier.gravityEast:
-			BallController.instance.EastGravity ();
-			break;
-		case ballModifier.gravityWest:
-			BallController.instance.WestGravity ();
-			break;
-		case ballModifier.gravitySouth:
-			BallController.instance.SouthGravity ();
-			break;
-		case ballModifier.bounceNone:
-			BallController.instance.NoJump ();
-			break;
-		case ballModifier.bounceShort:
-			BallController.instance.SmallJump ();
-			break;
-		case ballModifier.bounceNormal:
-			BallController.instance.MediumJump ();
-			break;
-		case ballModifier.bounceHigh:
-			BallController.instance.LargeJump ();
-			break;
-		case ballModifier.sizeSmall:
-			BallController.instance.SmallSize ();
-			break;
-		case ballModifier.sizeNormal:
-			BallController.instance.NormalSize ();
-			break;
-		case ballModifier.sizeLarge:
-			BallController.instance.BigSize ();
-			break;
-		case ballModifier.speedSlow:
-			BallController.instance.SlowSpeed ();
-			break;
-		case ballModifier.speedNormal:
-			BallController.instance.NormalSpeed ();
-			break;
-		case ballModifier.speedFast:
-			BallController.instance.FastSpeed ();
-			break;
-		}
+            case ballModifier.jump:
+                 BallController.instance.Jump();
+                 break;
+            case ballModifier.gravityNorth:
+                BallController.instance.NorthGravity();
+                break;
+            case ballModifier.gravityEast:
+			    BallController.instance.EastGravity ();
+			    break;
+		    case ballModifier.gravityWest:
+			    BallController.instance.WestGravity ();
+			    break;
+		    case ballModifier.gravitySouth:
+			    BallController.instance.SouthGravity ();
+			    break;
+		    case ballModifier.bounceNone:
+			    BallController.instance.NoJump ();
+			    break;
+		    case ballModifier.bounceShort:
+			    BallController.instance.SmallJump ();
+			    break;
+		    case ballModifier.bounceNormal:
+			    BallController.instance.MediumJump ();
+			    break;
+		    case ballModifier.bounceHigh:
+			    BallController.instance.LargeJump ();
+			    break;
+		    case ballModifier.sizeSmall:
+			    BallController.instance.SmallSize ();
+			    break;
+		    case ballModifier.sizeNormal:
+			    BallController.instance.NormalSize ();
+			    break;
+		    case ballModifier.sizeLarge:
+			    BallController.instance.BigSize ();
+			    break;
+		    case ballModifier.speedSlow:
+			    BallController.instance.SlowSpeed ();
+			    break;
+		    case ballModifier.speedNormal:
+			    BallController.instance.NormalSpeed ();
+			    break;
+		    case ballModifier.speedFast:
+			    BallController.instance.FastSpeed ();
+			    break;
+		    }
 	}
 
 	//SetupScene initializes our level and calls the previous functions to lay out the game board

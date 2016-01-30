@@ -22,10 +22,11 @@ public class BallController : MonoBehaviour {
 	
 	float maxVelocity;
 	float movementForce;
-	Vector2 gravityVector;
+	public Vector2 gravityVector;
 	
 	int count = 0;
 	float force;
+    bool isOnGround;
 	Rigidbody2D rigidbody;
 	
 	void Awake()
@@ -80,30 +81,10 @@ public class BallController : MonoBehaviour {
 			
 			
 			PlayBounceSound();
-			
-			if (gravityVector.x > 0)
-			{
-				rigidbody.velocity = new Vector2(0.0f, rigidbody.velocity.y);
-				rigidbody.AddForce(Vector2.left * force);
-			}
-			else if (gravityVector.x < 0)
-			{
-				rigidbody.velocity = new Vector2(0.0f, rigidbody.velocity.y);
-				
-				rigidbody.AddForce(Vector2.right * force);
-			}
-			else if (gravityVector.y > 0)
-			{
-				rigidbody.velocity = new Vector2(rigidbody.velocity.x, 0.0f);
-				
-				rigidbody.AddForce(Vector2.down * force);
-			}
-			else if (gravityVector.y < 0)
-			{
-				rigidbody.velocity = new Vector2(rigidbody.velocity.x, 0.0f);
-				
-				rigidbody.AddForce(Vector2.up * force);
-			}
+            isOnGround = true;
+
+
+            
 			
 			
 		} else if (coll.gameObject.tag == "Border") {
@@ -111,6 +92,41 @@ public class BallController : MonoBehaviour {
 			Application.LoadLevel (Application.loadedLevel);
 		}
 	}
+
+    public bool IsOnGround()
+    {
+        return isOnGround;
+    }
+
+    public void Jump()
+    {
+        if (!isOnGround)
+            return;
+        isOnGround = false;
+        if (gravityVector.x > 0)
+        {
+            rigidbody.velocity = new Vector2(0.0f, rigidbody.velocity.y);
+            rigidbody.AddForce(Vector2.left * force);
+        }
+        else if (gravityVector.x < 0)
+        {
+            rigidbody.velocity = new Vector2(0.0f, rigidbody.velocity.y);
+
+            rigidbody.AddForce(Vector2.right * force);
+        }
+        else if (gravityVector.y > 0)
+        {
+            rigidbody.velocity = new Vector2(rigidbody.velocity.x, 0.0f);
+
+            rigidbody.AddForce(Vector2.down * force);
+        }
+        else if (gravityVector.y < 0)
+        {
+            rigidbody.velocity = new Vector2(rigidbody.velocity.x, 0.0f);
+
+            rigidbody.AddForce(Vector2.up * force);
+        }
+    }
 	
 	public void Right()
 	{
@@ -188,6 +204,7 @@ public class BallController : MonoBehaviour {
 	
 	public void NorthGravity()
 	{
+        print("gravity north");
 		gravityVector = new Vector3(0.0f, 9.81f, 0.0f);
 	}
 	

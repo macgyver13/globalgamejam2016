@@ -12,13 +12,15 @@ public class BallController : MonoBehaviour {
     public float nomralSpeed;
     public float fastSpeed;
 
-    public float maxVelocity;
-
+    public float slowMaxVelocity;
+    public float normalMaxVelocity;
+    public float fastMaxVelocity;
 
     public float smallJumpForce;
     public float mediumJumpForce;
     public float largeJumpForce;
 
+    float maxVelocity;
     float movementForce;
     Vector2 gravityVector;
 
@@ -56,22 +58,50 @@ public class BallController : MonoBehaviour {
     {
         if (coll.gameObject.tag == "Floor")
         {
+            ContactPoint2D contact = coll.contacts[0];
+            Vector2 direction = (Vector2)transform.position - contact.point;
+            print(direction);
+            if (gravityVector.x > 0 && (direction.y != 0 || direction.x > 0))
+            {
+                return;
+            }
+            else if (gravityVector.x < 0 && (direction.y != 0 || direction.x < 0))
+            {
+                return;
+            }
+            else if (gravityVector.y > 0 && (direction.x != 0 || direction.y > 0))
+            {
+                return;
+            }
+            else if (gravityVector.y < 0 && (direction.x != 0 || direction.y < 0))
+            {
+                return;
+            }
+
+
             PlayBounceSound();
-            rigidbody.velocity = new Vector2(rigidbody.velocity.x, 0.0f);
+            
             if (gravityVector.x > 0)
             {
-                rigidbody.AddForce(Vector2.right * force);
+                rigidbody.velocity = new Vector2(0.0f, rigidbody.velocity.y);
+                rigidbody.AddForce(Vector2.left * force);
             }
             else if (gravityVector.x < 0)
             {
-                rigidbody.AddForce(Vector2.left * force);
+                rigidbody.velocity = new Vector2(0.0f, rigidbody.velocity.y);
+
+                rigidbody.AddForce(Vector2.right * force);
             }
             else if (gravityVector.y > 0)
             {
+                rigidbody.velocity = new Vector2(rigidbody.velocity.x, 0.0f);
+
                 rigidbody.AddForce(Vector2.down * force);
             }
             else if (gravityVector.y < 0)
             {
+                rigidbody.velocity = new Vector2(rigidbody.velocity.x, 0.0f);
+
                 rigidbody.AddForce(Vector2.up * force);
             }
             
@@ -84,11 +114,41 @@ public class BallController : MonoBehaviour {
 
 	public void Right()
     {
-		rigidbody.AddForce(new Vector2(1,0) * movementForce);
+        if (gravityVector.x > 0)
+        {
+            rigidbody.AddForce(new Vector2(0, 1) * movementForce);
+        }
+        else if (gravityVector.x < 0)
+        {
+            rigidbody.AddForce(new Vector2(0, -1) * movementForce);
+        }
+        else if (gravityVector.y > 0)
+        {
+            rigidbody.AddForce(new Vector2(-1, 0) * movementForce);
+        }
+        else if (gravityVector.y < 0)
+        {
+            rigidbody.AddForce(new Vector2(1, 0) * movementForce);
+        }
 	}
 	public void Left()
     {
-		rigidbody.AddForce(new Vector2(-1, 0) * movementForce);
+        if (gravityVector.x > 0)
+        {
+            rigidbody.AddForce(new Vector2(0, -1) * movementForce);
+        }
+        else if (gravityVector.x < 0)
+        {
+            rigidbody.AddForce(new Vector2(0, 1) * movementForce);
+        }
+        else if (gravityVector.y > 0)
+        {
+            rigidbody.AddForce(new Vector2(1, 0) * movementForce);
+        }
+        else if (gravityVector.y < 0)
+        {
+            rigidbody.AddForce(new Vector2(-1, 0) * movementForce);
+        }
 	}
 
     public void BigSize()
@@ -148,16 +208,19 @@ public class BallController : MonoBehaviour {
 
     public void SlowSpeed()
     {
+        maxVelocity = slowMaxVelocity;
         movementForce = slowSpeed;
     }
 
     public void NormalSpeed()
     {
+        maxVelocity = normalMaxVelocity;
         movementForce = nomralSpeed;
     }
 
     public void FastSpeed()
     {
+        maxVelocity = fastMaxVelocity;
         movementForce = fastSpeed;
     }
 }

@@ -28,7 +28,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 157348}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.42, y: 1.46, z: 0}
+  m_LocalPosition: {x: -6.249781, y: -0.1893518, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -46,7 +46,7 @@ Rigidbody2D:
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
@@ -150,7 +150,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentTouch: 1
-  ballController: {fileID: 0}
 --- !u!114 &11476682
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -168,14 +167,15 @@ MonoBehaviour:
   - {fileID: 8300000, guid: ac69c683c91a8fb469c10d018585fb00, type: 3}
   - {fileID: 8300000, guid: 2179a4d7e465cbf4194e18f029c19a48, type: 3}
   - {fileID: 8300000, guid: 9894783e298c8824196f09c06e98acc2, type: 3}
+  gravityScale: 6
   slowSpeed: 10
-  nomralSpeed: 20
+  nomralSpeed: 50
   fastSpeed: 30
   slowMaxVelocity: 10
-  normalMaxVelocity: 20
+  normalMaxVelocity: 10
   fastMaxVelocity: 30
   smallJumpForce: 1500
-  mediumJumpForce: 750
+  mediumJumpForce: 1300
   largeJumpForce: 1000
   gravityVector: {x: 0, y: 0}
 --- !u!212 &21233086

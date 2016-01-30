@@ -47,7 +47,7 @@ public class BallController : MonoBehaviour {
 		rigidbody = transform.GetComponent<Rigidbody2D>();
 	}
 	void Update() {
-		Vector2 newVelocitiy = Vector2.ClampMagnitude(rigidbody.velocity, maxVelocity);
+		Vector2 newVelocitiy = Vector2.ClampMagnitude(new Vector2(rigidbody.velocity.x, 0), maxVelocity);
 		rigidbody.velocity = new Vector2(newVelocitiy.x, rigidbody.velocity.y);
 		rigidbody.AddForce(gravityVector, ForceMode2D.Force);
 	}
@@ -181,6 +181,13 @@ public class BallController : MonoBehaviour {
 			rigidbody.AddForce(new Vector2(-1, 0) * movementForce);
 		}
 	}
+
+    public void Stop()
+    {
+        rigidbody.angularVelocity = 0;
+       // if (isOnGround)
+       //     rigidbody.velocity = new Vector2(0, rigidbody.velocity.y);
+    }
 	
 	public void BigSize()
 	{

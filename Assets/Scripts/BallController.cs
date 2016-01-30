@@ -32,14 +32,14 @@ public class BallController : MonoBehaviour {
     {
         if (instance == null)
             instance = this;
+        SouthGravity();
+        MediumJump();
+        NormalSpeed();
     }
 
     // Use this for initialization
     void Start () {
         rigidbody = transform.GetComponent<Rigidbody2D>();
-        SouthGravity();
-        MediumJump();
-        NormalSpeed();
     }
 	void Update() {
 		Vector2 newVelocitiy = Vector2.ClampMagnitude(rigidbody.velocity, maxVelocity);

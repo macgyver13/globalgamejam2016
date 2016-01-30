@@ -49,9 +49,9 @@ public class BoardManager : MonoBehaviour {
 			//send the calculated position
 
 			Debug.Log ("Set Modifier" + modifierList [modifierPosition]);
-			SetModifier();
 			modifierPosition += 1;
-		}
+            SetModifier();
+        }
 
 	}
 

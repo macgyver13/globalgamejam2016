@@ -120,7 +120,6 @@ MonoBehaviour:
   smoothTime: 1
   cameraHeight: 2.5
   velocity: {x: 0, y: 0}
-  threshHold: 5
 --- !u!4 &200291106
 Transform:
   m_ObjectHideFlags: 0
@@ -283,6 +282,7 @@ GameObject:
   - 92: {fileID: 1619671869}
   - 124: {fileID: 1619671868}
   - 81: {fileID: 1619671867}
+  - 114: {fileID: 1619671872}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -356,6 +356,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 200291106}
   m_RootOrder: 0
+--- !u!114 &1619671872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1619671866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a2ccc639945c47ba8ad33e09f8fcf3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _transfrom: {fileID: 1619671871}
+  duration: .100000001
+  speed: .5
+  magnitude: .100000001
+  test: 0
 --- !u!1 &1705851528
 GameObject:
   m_ObjectHideFlags: 0

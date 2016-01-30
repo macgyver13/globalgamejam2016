@@ -31,16 +31,18 @@ public class CameraController : MonoBehaviour {
 
 		if (ball.position.y > topThresh) {
 			newYPosition = potentialNewY;
+			PerlinShake.instance.CommonShake();
 		}
 		if (ball.position.y < bottomThresh) {
 			newYPosition = potentialNewY;
+			PerlinShake.instance.CommonShake();
 		}
 
 		transform.position = new Vector3(Mathf.SmoothDamp(_transform.position.x, ball.position.x, ref velocity.x, smoothTime), newYPosition, _transform.position.z);
 	}
 
 	float TopThreshHold () {
-		float fourth = Screen.height * 0.40f;
+		float fourth = Screen.height * 0.25f;
 		float thresh = Screen.height - fourth;
 		Vector3 screenPos = new Vector3 (0, thresh, 0);
 		Vector3 worldThresh = mainCamera.ScreenToWorldPoint (screenPos);
@@ -49,7 +51,7 @@ public class CameraController : MonoBehaviour {
 	}
 
 	float BottomThreshHold () {
-		float fourth = Screen.height * 0.40f;
+		float fourth = Screen.height * 0.25f;
 		Vector3 screenPos = new Vector3 (0, fourth, 0);
 		Vector3 worldThresh = mainCamera.ScreenToWorldPoint (screenPos);
 

@@ -33,7 +33,10 @@ public class BallController : MonoBehaviour {
                 if (count >= force.Length)
                     count = 0;
 //            }
-        }
+        } else if (coll.gameObject.tag == "Border") {
+			//End scene
+			Application.LoadLevel (Application.loadedLevel);
+		}
     }
 
 	public void Right() {

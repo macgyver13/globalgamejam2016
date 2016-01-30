@@ -6,11 +6,17 @@ public class BallController : MonoBehaviour {
 
     public AudioClip[] bounceSounds;
 
-    public float[] force;
+    public float force;
 
     public float movementForce;
 
     public float maxVelocity;
+
+
+    public float smallJumpForce;
+    public float mediumJumpForce;
+    public float largeJumpForce;
+
 
     int count = 0;
     Rigidbody2D rigidbody;
@@ -20,7 +26,8 @@ public class BallController : MonoBehaviour {
         rigidbody = transform.GetComponent<Rigidbody2D>();
     }
 	void Update() {
-		rigidbody.velocity = Vector2.ClampMagnitude(rigidbody.velocity, maxVelocity);
+		Vector2 newVelocitiy = Vector2.ClampMagnitude(rigidbody.velocity, maxVelocity);
+        rigidbody.velocity = new Vector2(newVelocitiy.x, rigidbody.velocity.y);
 	}
 
     void PlayBounceSound()
@@ -36,25 +43,54 @@ public class BallController : MonoBehaviour {
         {
             PlayBounceSound();
             rigidbody = transform.GetComponent<Rigidbody2D>();
-//            if (rigidbody.velocity.y < 0)
-//            {
-                rigidbody.velocity = new Vector2(rigidbody.velocity.x, 0);
-                rigidbody.AddForce(Vector2.up * force[count]);
-                count++;
-                if (count >= force.Length)
-                    count = 0;
-//            }
+            rigidbody.AddForce(Vector2.up * force);
         } else if (coll.gameObject.tag == "Border") {
 			//End scene
 			Application.LoadLevel (Application.loadedLevel);
 		}
     }
 
-	public void Right() {
+	public void Right()
+    {
 		rigidbody.AddForce(new Vector2(1,0) * movementForce);
 	}
-	public void Left() {
+	public void Left()
+    {
 		rigidbody.AddForce(new Vector2(-1, 0) * movementForce);
 	}
 
+    public void BigSize()
+    {
+        transform.localScale.Set(2f,2f,2f);
+    }
+
+    public void SmallSize()
+    {
+        transform.localScale.Set(.5f, .5f, .5f);
+    }
+
+    public void NoJump()
+    {
+        force = 0f;
+    }
+
+    public void SmallJump()
+    {
+        force = smallJumpForce;
+    }
+
+    public void MediumJump()
+    {
+        force = mediumJumpForce;
+    }
+
+    public void LargeJump()
+    {
+        force = largeJumpForce;
+    }
+
+    public void NorthGravity()
+    {
+
+    }
 }

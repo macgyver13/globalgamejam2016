@@ -459,6 +459,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1438090835}
   - 114: {fileID: 1438090836}
+  - 114: {fileID: 1438090837}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -489,9 +490,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf16076db817646ad9be873abf3196a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  modifierDuration: 5
-  modifierList: 
+  modifierDuration: 2
+  modifierList: 0b0000000a000000
   modifierPosition: 0
+  totalTime: 0
+--- !u!114 &1438090837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1438090834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66c883581eac94ce4865513405ecacb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  score: 0
   totalTime: 0
 --- !u!1 &1619671866
 GameObject:

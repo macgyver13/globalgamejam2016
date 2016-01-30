@@ -3,7 +3,7 @@ using System.Collections;
 
 public class GameManager : MonoBehaviour {
 
-	private static GameManager instance = null;
+	public static GameManager instance = null;
 
 	public int score;
 	public float totalTime;
@@ -55,12 +55,21 @@ public class GameManager : MonoBehaviour {
 		totalTime += Time.deltaTime;
 	}
 
-	void addCollectible(int value){
+	void AddCollectible(int value){
 		score += value;
 	}
 
-	int getScore(){
+	int GetScore(){
 		
 		return score;
+	}
+
+	public void ResetLevel(){
+		Debug.Log ("You died");
+	}
+
+	public void EndLevel(){
+		Debug.Log ("Level is over");
+		Application.LoadLevel (Application.loadedLevel);
 	}
 }

@@ -15,20 +15,20 @@ public class InputController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 #if (UNITY_IOS || UNITY_ANDROID) && !UNITY_EDITOR
-		foreach (Touch touch in Input.touches) {
-			print ("TOUCH");
-			if (touch.phase != TouchPhase.Ended && touch.phase != TouchPhase.Canceled) {
-				if(currentTouch == touch.fingerId) {
-					touch = currentTouch;
-					CaculateTouch();
-				}
-			}
-			else {
-				if(touch == currentTouch && (touch.phase == TouchPhase.Ended || touch.phase == TouchPhase.Canceled)) {
-					currentTouch = null;
-				}
-			}
-		}
+//		foreach (Touch touch in Input.touches) {
+//			print ("TOUCH");
+//			if (touch.phase != TouchPhase.Ended && touch.phase != TouchPhase.Canceled) {
+//				if(currentTouch == touch.fingerId) {
+//					touch = currentTouch;
+//					CaculateTouch();
+//				}
+//			}
+//			else {
+//				if(touch == currentTouch && (touch.phase == TouchPhase.Ended || touch.phase == TouchPhase.Canceled)) {
+//					currentTouch = null;
+//				}
+//			}
+//		}
 #else
 		if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D)) {
 			Right();

@@ -2,6 +2,8 @@
 using System.Collections;
 
 public class BallController : MonoBehaviour {
+    public static BallController instance;
+
     public AudioSource audioSource;
 
     public AudioClip[] bounceSounds;
@@ -20,6 +22,12 @@ public class BallController : MonoBehaviour {
     int count = 0;
     float force;
     Rigidbody2D rigidbody;
+
+    void Awake()
+    {
+        if (instance == null)
+            instance = this;
+    }
 
     // Use this for initialization
     void Start () {

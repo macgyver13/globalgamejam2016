@@ -4,12 +4,12 @@ using System.Collections.Generic;
 
 public class InputController : MonoBehaviour {
 
-	private Touch currentTouch;
+	public int currentTouch;
 	public BallController ballController;
 
 	// Use this for initialization
 	void Start () {
-	
+		currentTouch = -1;
 	}
 	
 	// Update is called once per frame
@@ -18,7 +18,7 @@ public class InputController : MonoBehaviour {
 		foreach (Touch touch in Input.touches) {
 			print ("TOUCH");
 			if (touch.phase != TouchPhase.Ended && touch.phase != TouchPhase.Canceled) {
-				if(!currentTouch) {
+				if(currentTouch == touch.fingerId) {
 					touch = currentTouch;
 					CaculateTouch();
 				}
@@ -31,11 +31,9 @@ public class InputController : MonoBehaviour {
 		}
 #else
 		if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D)) {
-			print("RIGHT");
 			Right();
 		}
 		if (Input.GetKey (KeyCode.LeftArrow) || Input.GetKey(KeyCode.A)) {
-			print("LEFT");
 			Left();		
 		}
 #endif

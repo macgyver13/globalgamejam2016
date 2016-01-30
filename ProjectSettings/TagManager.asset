@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Floor
   - Border
+  - End
   layers:
   - Default
   - TransparentFX

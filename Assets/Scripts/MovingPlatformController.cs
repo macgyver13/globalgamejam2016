@@ -4,23 +4,30 @@ using System.Collections;
 
 public class MovingPlatformController : MonoBehaviour {
 
-    public Rigidbody2D ballplatformRgbd;
-
     [SerializeField]
     public iTween.EaseType easeType;
 
     public float rayDistance;
-    //public float offsetFromCollidingWall;
 
-    public float movementSpeed;
-    public float movementTime;
+    public float speed;
+    public float time;
+
+    [HideInInspector]
+    public bool useBoth;
+    public bool rotate;
+
+    [SerializeField]
+    public iTween.LoopType rotationLoopType;
+    public Vector3 rotationAngles;
 
     public bool returnToOrigin;
-    //public bool reverseInitialLookDirection;
+    public bool reverseInitialLookDirection;
     public bool lookVertically;
     public bool lookHorizontally;
 
+
     private Vector2 origin;
+    private Vector3 originRotation;
     private List<Vector2> lookDirections;
 
     private bool hasTween
@@ -33,16 +40,23 @@ public class MovingPlatformController : MonoBehaviour {
     void Start()
     {
         origin = transform.position;
+        originRotation = transform.eulerAngles;
         lookDirections = new List<Vector2>();
         if(lookHorizontally)
             lookDirections.AddRange(new Vector2[] { Vector2.right, Vector2.left });
         else if (lookVertically)
             lookDirections.AddRange( new Vector2[]{ Vector2.up, Vector2.down});
 
-        //if (reverseInitialLookDirection)
-        //    lookDirections.Reverse();
+        if (reverseInitialLookDirection)
+            lookDirections.Reverse();
 
-        StartTween(GetWallPosition());
+        if (useBoth)
+        {
+            StartTween( rotationAngles, "rotation" );
+            StartTween((Vector3)GetWallPosition(), "movement");
+        }
+        else
+            StartTween((rotate) ? rotationAngles : (Vector3)GetWallPosition(), "rotation");
     }
 
    Vector2 GetWallPosition()
@@ -53,7 +67,7 @@ public class MovingPlatformController : MonoBehaviour {
             hit = Physics2D.Raycast(transform.position, lookDirections[i], rayDistance);
             if (hit.collider != null && (hit.collider.gameObject.tag == "Floor" || hit.collider.gameObject.tag == "Wall"))
             {
-                Vector2 movePosition = hit.collider.gameObject.transform.position;
+                Vector2 movePosition = hit.point;
                 return AdjustPosition(movePosition);
             }
         }
@@ -65,58 +79,71 @@ public class MovingPlatformController : MonoBehaviour {
     {
         if (lookHorizontally)
         {
-            float newX = (movePosition.x > 0) ? movePosition.x - transform.lossyScale.x : movePosition.x + transform.lossyScale.x;
+            float newX = (movePosition.x > 0) ? movePosition.x : movePosition.x;
             movePosition = new Vector2(newX, movePosition.y);
         }
         else if (lookVertically)
         {
-            float newY = (movePosition.y > 0) ? movePosition.y - transform.lossyScale.y : movePosition.y + transform.lossyScale.y;
+            float newY = (movePosition.y > 0) ? movePosition.y  : movePosition.y ;
             movePosition = new Vector2(movePosition.x, newY);
         }
 
         return movePosition;
     }
 
-    void StartTween(Vector2 moveToPosition)
+    void StartTween(Vector3 moveToOrRotatePosition, string tweenType)
     {
         lookDirections.Reverse();
-        Debug.Log(moveToPosition);
-        if (moveToPosition != Vector2.zero)
+        Debug.Log(moveToOrRotatePosition);
+        if (moveToOrRotatePosition != Vector3.zero)
         {
             if (hasTween)
-                DestroyTween();
+                DestroyTween(tweenType);
 
             Hashtable args = new Hashtable();
-            args.Add("x", moveToPosition.x );
-            args.Add("y", moveToPosition.y);
+            args.Add("x", (rotate) ? rotationAngles.x : moveToOrRotatePosition.x );
+            args.Add((rotate) ? "z" : "y", (rotate) ? rotationAngles.z : moveToOrRotatePosition.y);
             args.Add("easetype", easeType);
-            args.Add("oncomplete", "TweenCompleted");
+            if((returnToOrigin && !rotate && (Vector2)transform.position == origin))
+                args.Add("oncomplete", "TweenCompleted");
 
-            if (movementSpeed > float.Epsilon)
-                args.Add("speed", movementSpeed);
+            if (speed > float.Epsilon)
+                args.Add("speed", speed);
             else
-                args.Add("time", movementTime);
+                args.Add("time", time);
 
-            iTween.MoveTo(gameObject, args);
+            if (rotate || (useBoth && tweenType == "rotation"))
+            {
+                args.Add("name", "rotation");
+                args.Add("looptype", rotationLoopType);
+                iTween.RotateAdd(gameObject, args);
+            }
+            else
+            {
+                args.Add("name", "movement");
+                iTween.MoveTo(gameObject, args);
+            }
         }
     }
 
     void TweenCompleted()
     {
-        if (returnToOrigin)
-        {
-            if ((Vector2)transform.position != origin)
-                StartTween(origin);
-            else
-                StartTween(GetWallPosition());
-        }
-        else
-            StartTween(GetWallPosition());
+        StartTween(origin, "movement");
     }
 
-    void DestroyTween()
+    void DestroyTween(string tweenType)
     {
-        Destroy(gameObject.GetComponent<iTween>());
+        iTween[] tweens =  gameObject.GetComponents<iTween>();
+        for (int i = 0; i < tweens.Length; i++)
+        {
+            Debug.Log(tweens[i]._name);
+            if (tweens[i]._name == tweenType)
+            {
+                Destroy(tweens[i]);
+                break;
+            }
+
+        }
     }
 
     void OnCollisionEnter2D(Collision2D coll)
@@ -124,8 +151,10 @@ public class MovingPlatformController : MonoBehaviour {
         GameObject otherObject = coll.gameObject;
         if ((otherObject.tag == "Floor" || otherObject.tag == "Wall"))
         {
-            Debug.Log(otherObject.name);
-            StartTween(GetWallPosition());
+            if (rotate)
+                 StartTween(rotationAngles, "rotation");
+            else
+               StartTween((returnToOrigin && (Vector2)transform.position != origin) ? origin : GetWallPosition(), "movement");
         }
     }
 

@@ -103,7 +103,14 @@ public class BallController : MonoBehaviour {
 		} else if (coll.gameObject.tag == "Border") {
             gameObject.SetActive(false);
             Instantiate(ballExplosion, transform.position, Quaternion.identity);
-            GameManager.instance.ResetLevel();
+            if (GameManager.instance != null)
+            {
+                GameManager.instance.ResetLevel();
+            }
+            else
+            {
+                Application.LoadLevel(Application.loadedLevel);
+            }
         } else if (coll.gameObject.tag == "End") {
 			//End scene
             if(GameManager.instance != null)

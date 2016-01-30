@@ -26,7 +26,6 @@ public class GameManager : MonoBehaviour {
     //Awake is always called before any Start functions
     void Awake()
 	{
-        FadeImg.rectTransform.localScale = new Vector2(Screen.width, Screen.height);
         //Check if instance already exists
         if (instance == null)
 
@@ -53,9 +52,9 @@ public class GameManager : MonoBehaviour {
     {
         if (fadeToBlack)
         {
-            fadeTime += Time.deltaTime;
+            fadeTime += Time.deltaTime * 2.0f;
             Debug.Log("test: " + fadeTime);
-            //FadeImg.color = Color.Lerp(Color.clear, Color.black, fadeTime);
+            FadeImg.color = Color.Lerp(Color.clear, Color.black, fadeTime);
             if (fadeTime >= 1f)
             {
                 fadeToBlack = false;
@@ -64,8 +63,8 @@ public class GameManager : MonoBehaviour {
         }
         if (fadeToClear)
         {
-            fadeTime += Time.deltaTime;
-            //FadeImg.color = Color.Lerp(Color.clear, Color.black, fadeTime);
+            fadeTime += Time.deltaTime * 2.0f;
+            FadeImg.color = Color.Lerp(Color.black, Color.clear, fadeTime);
             if (fadeTime >= 1f)
             {
                 fadeToClear = false;
@@ -119,7 +118,7 @@ public class GameManager : MonoBehaviour {
     {
         yield return new WaitForSeconds(2f);
         fadeToBlack = true;
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(.5f);
         Application.LoadLevel(Application.loadedLevel);
         fadeToClear = true;
     }
@@ -128,7 +127,7 @@ public class GameManager : MonoBehaviour {
     {
         yield return new WaitForSeconds(2f);
         fadeToBlack = true;
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(.5f);
         levelIndex++;
         LoadLevel();
         fadeToClear = true;

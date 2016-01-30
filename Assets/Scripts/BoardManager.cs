@@ -17,6 +17,7 @@ public class BoardManager : MonoBehaviour {
 	public ballModifier[] modifierList;
 	public int modifierPosition = 0;
 	public float totalTime;
+    public static string gravityDirection = "south";
 
 
 	//Clears our list gridPositions and prepares it to generate a new board.
@@ -78,16 +79,20 @@ public class BoardManager : MonoBehaviour {
                  break;
             case ballModifier.gravityNorth:
                 BallController.instance.NorthGravity();
+                gravityDirection = "north";
                 break;
             case ballModifier.gravityEast:
 			    BallController.instance.EastGravity ();
-			    break;
+                gravityDirection = "east";
+                break;
 		    case ballModifier.gravityWest:
 			    BallController.instance.WestGravity ();
-			    break;
+                gravityDirection = "west";
+                break;
 		    case ballModifier.gravitySouth:
 			    BallController.instance.SouthGravity ();
-			    break;
+                gravityDirection = "south";
+                break;
 		    case ballModifier.bounceNone:
 			    BallController.instance.NoJump ();
 			    break;

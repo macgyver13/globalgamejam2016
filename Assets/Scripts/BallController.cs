@@ -30,7 +30,7 @@ public class BallController : MonoBehaviour {
 	
 	int count = 0;
 	float force;
-    bool isOnGround;
+    bool isOnGround = true;
 	Rigidbody2D rigidbody;
 	
 	void Awake()

@@ -13,7 +13,7 @@ GameObject:
   - 50: {fileID: 5068498}
   - 114: {fileID: 11419634}
   m_Layer: 0
-  m_Name: Platform-L (1)
+  m_Name: Platform-M-Sliding
   m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -73,12 +73,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7e827885bfae25439e6d5a1eeae136f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ballplatformRgbd: {fileID: 5068498}
   easeType: 1
   rayDistance: 1000
-  movementSpeed: 0
-  movementTime: 3
+  speed: 0
+  time: 0
+  useBoth: 0
+  rotate: 0
+  rotationLoopType: 0
+  rotationAngles: {x: 0, y: 0, z: 0}
   returnToOrigin: 0
+  reverseInitialLookDirection: 0
   lookVertically: 0
   lookHorizontally: 1
 --- !u!212 &21217108

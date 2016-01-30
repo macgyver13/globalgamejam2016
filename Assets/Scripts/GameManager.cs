@@ -6,6 +6,7 @@ using System.Collections;
 public class GameManager : MonoBehaviour {
 
 	public static GameManager instance = null;
+	public GameObject[] modifierPrefabList;
 
     public Image FadeImg;
 
@@ -132,4 +133,9 @@ public class GameManager : MonoBehaviour {
         LoadLevel();
         fadeToClear = true;
     }
+
+	public GameObject GetModifierCard(ballModifier ballMod){
+		return modifierPrefabList[(int)ballMod];
+	}
+
 }

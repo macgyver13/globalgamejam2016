@@ -11,7 +11,7 @@ public class InputController : MonoBehaviour {
 	private enum Control {
 		Right,
 		Left,
-		None
+		None,
 	};
 	private Control currentControl;
 	
@@ -44,28 +44,35 @@ public class InputController : MonoBehaviour {
 			Left ();		
 		} else {
 			currentControl = Control.None;
+            ballController.Stop();
 		}
 		#endif
 	}
 	
-	void CaculateTouch(Touch touch) {
+	void CalculateTouch(Touch touch) {
 		float mid = Screen.width * 0.5f;
 		if (touch.position.x < mid) {
-			Left ();
+            Right();
 		}
-		else {
-			Right ();
-		}
+		else { 
+            Left();
+        }
 	}
 	
 	
 	void Right() {
-		ballController.Right ();
+        if (BoardManager.gravityDirection == "north")
+            ballController.Left();
+        else
+            ballController.Right();
 		currentControl = Control.Right;
 	}
 	
 	void Left () {
-		ballController.Left ();
-		currentControl = Control.Left;
+        if (BoardManager.gravityDirection == "north")
+            ballController.Right();
+        else
+            ballController.Left();
+        currentControl = Control.Left;
 	}
 }

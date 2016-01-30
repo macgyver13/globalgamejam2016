@@ -3,7 +3,9 @@ using System.Collections;
 
 public class BallController : MonoBehaviour {
 	public static BallController instance;
-	
+
+    public GameObject ballExplosion;
+
 	public AudioSource audioSource;
 	
 	public AudioClip[] bounceSounds;
@@ -28,7 +30,7 @@ public class BallController : MonoBehaviour {
 	
 	int count = 0;
 	float force;
-    bool isOnGround;
+    bool isOnGround = true;
 	Rigidbody2D rigidbody;
 	
 	void Awake()
@@ -45,9 +47,18 @@ public class BallController : MonoBehaviour {
 		rigidbody = transform.GetComponent<Rigidbody2D>();
 	}
 	void Update() {
-		Vector2 newVelocitiy = Vector2.ClampMagnitude(new Vector2(rigidbody.velocity.x, 0), maxVelocity);
-		rigidbody.velocity = new Vector2(newVelocitiy.x, rigidbody.velocity.y);
-		rigidbody.AddForce(gravityVector, ForceMode2D.Force);
+        if (BoardManager.gravityDirection == "east" || BoardManager.gravityDirection == "west")
+        {
+            Vector2 newVelocity = Vector2.ClampMagnitude(new Vector2(0, rigidbody.velocity.y), maxVelocity);
+            rigidbody.velocity = new Vector2(rigidbody.velocity.x, newVelocity.y);
+        }
+        else
+        {
+            Vector2 newVelocity = Vector2.ClampMagnitude(new Vector2(rigidbody.velocity.x, 0), maxVelocity);
+            rigidbody.velocity = new Vector2(newVelocity.x, rigidbody.velocity.y);
+        }
+
+        rigidbody.AddForce(gravityVector, ForceMode2D.Force);
 	}
 	
 	void PlayBounceSound()
@@ -90,8 +101,9 @@ public class BallController : MonoBehaviour {
 			
 			
 		} else if (coll.gameObject.tag == "Border") {
-			//End scene
-            if(GameManager.instance != null)
+            gameObject.SetActive(false);
+            Instantiate(ballExplosion, transform.position, Quaternion.identity);
+            if (GameManager.instance != null)
             {
                 GameManager.instance.ResetLevel();
             }
@@ -99,7 +111,7 @@ public class BallController : MonoBehaviour {
             {
                 Application.LoadLevel(Application.loadedLevel);
             }
-		} else if (coll.gameObject.tag == "End") {
+        } else if (coll.gameObject.tag == "End") {
 			//End scene
             if(GameManager.instance != null)
             {

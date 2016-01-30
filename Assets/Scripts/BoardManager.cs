@@ -16,8 +16,6 @@ public class BoardManager : MonoBehaviour {
 	public int modifierDuration = 5;
 	public ballModifier[] modifierList;
 	public int modifierPosition = 0;
-	public float totalTime;
-
 
 	//Clears our list gridPositions and prepares it to generate a new board.
 	void InitialiseList ()
@@ -31,7 +29,7 @@ public class BoardManager : MonoBehaviour {
 	}
 
 	void ResetBoard(){
-		totalTime = 0;
+//		totalTime = 0;
 		modifierPosition = 0;
 	}
 
@@ -81,13 +79,13 @@ public class BoardManager : MonoBehaviour {
                 break;
             case ballModifier.gravityEast:
 			    BallController.instance.EastGravity ();
-			    break;
+                break;
 		    case ballModifier.gravityWest:
 			    BallController.instance.WestGravity ();
-			    break;
+                break;
 		    case ballModifier.gravitySouth:
 			    BallController.instance.SouthGravity ();
-			    break;
+                break;
 		    case ballModifier.bounceNone:
 			    BallController.instance.NoJump ();
 			    break;

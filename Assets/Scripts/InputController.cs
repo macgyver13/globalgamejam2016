@@ -29,10 +29,12 @@ public class InputController : MonoBehaviour {
 			}
 		}
 #else
-		if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D)) {
+		if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D)) {
+			print("RIGHT");
 			Right();
 		}
-		if (Input.GetKeyUp (KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A)) {
+		if (Input.GetKey (KeyCode.LeftArrow) || Input.GetKey(KeyCode.A)) {
+			print("LEFT");
 			Left();		
 		}
 #endif

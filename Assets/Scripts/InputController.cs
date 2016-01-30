@@ -5,11 +5,13 @@ using System.Collections.Generic;
 public class InputController : MonoBehaviour {
 
 	public int currentTouch;
-	public BallController ballController;
+
+	BallController ballController;
 
 	// Use this for initialization
 	void Start () {
-		currentTouch = -1;
+        ballController = GetComponent<BallController>();
+        currentTouch = -1;
 	}
 	
 	// Update is called once per frame

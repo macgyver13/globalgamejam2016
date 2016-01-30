@@ -6,8 +6,6 @@ public class BallController : MonoBehaviour {
 
     public AudioClip[] bounceSounds;
 
-    public float force;
-
     public float movementForce;
 
     public float maxVelocity;
@@ -17,18 +15,23 @@ public class BallController : MonoBehaviour {
     public float mediumJumpForce;
     public float largeJumpForce;
 
+    Vector2 gravityVector;
 
     int count = 0;
+    float force;
     Rigidbody2D rigidbody;
 
     // Use this for initialization
     void Start () {
         rigidbody = transform.GetComponent<Rigidbody2D>();
+        SouthGravity();
+        MediumJump();
     }
 	void Update() {
 		Vector2 newVelocitiy = Vector2.ClampMagnitude(rigidbody.velocity, maxVelocity);
         rigidbody.velocity = new Vector2(newVelocitiy.x, rigidbody.velocity.y);
-	}
+        rigidbody.AddForce(gravityVector, ForceMode2D.Force);
+    }
 
     void PlayBounceSound()
     {
@@ -42,7 +45,7 @@ public class BallController : MonoBehaviour {
         if (coll.gameObject.tag == "Floor")
         {
             PlayBounceSound();
-            rigidbody = transform.GetComponent<Rigidbody2D>();
+            rigidbody.velocity = new Vector2(rigidbody.velocity.x, 0.0f);
             rigidbody.AddForce(Vector2.up * force);
         } else if (coll.gameObject.tag == "Border") {
 			//End scene
@@ -91,6 +94,21 @@ public class BallController : MonoBehaviour {
 
     public void NorthGravity()
     {
+        gravityVector = new Vector3(0.0f, 9.81f, 0.0f);
+    }
 
+    public void SouthGravity()
+    {
+        gravityVector = new Vector3(0.0f, -9.81f, 0.0f);
+    }
+
+    public void WestGravity()
+    {
+        gravityVector = new Vector3(-9.81f, 0.0f, 0.0f);
+    }
+
+    public void EastGravity()
+    {
+        gravityVector = new Vector3(9.81f, 0.0f, 0.0f);
     }
 }

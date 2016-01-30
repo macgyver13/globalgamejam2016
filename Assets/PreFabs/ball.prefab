@@ -13,6 +13,7 @@ GameObject:
   - 50: {fileID: 5028450}
   - 114: {fileID: 11476682}
   - 82: {fileID: 8233874}
+  - 114: {fileID: 11418276}
   m_Layer: 0
   m_Name: ball
   m_TagString: Untagged
@@ -137,6 +138,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &11418276
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 157348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b241cb029acff453ab6d987e8de17cb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentTouch: 1
+  ballController: {fileID: 0}
 --- !u!114 &11476682
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -154,11 +168,11 @@ MonoBehaviour:
   - {fileID: 8300000, guid: ac69c683c91a8fb469c10d018585fb00, type: 3}
   - {fileID: 8300000, guid: 2179a4d7e465cbf4194e18f029c19a48, type: 3}
   - {fileID: 8300000, guid: 9894783e298c8824196f09c06e98acc2, type: 3}
-  force:
-  - 250
-  - 500
-  movementForce: 10
+  movementForce: 20
   maxVelocity: 10
+  smallJumpForce: 250
+  mediumJumpForce: 500
+  largeJumpForce: 750
 --- !u!212 &21233086
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -195,7 +209,27 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: movementForce
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: currentTouch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: smallJumpForce
+      value: 250
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: mediumJumpForce
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: largeJumpForce
+      value: 750
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 157348}

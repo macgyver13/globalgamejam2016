@@ -47,9 +47,18 @@ public class BallController : MonoBehaviour {
 		rigidbody = transform.GetComponent<Rigidbody2D>();
 	}
 	void Update() {
-		Vector2 newVelocitiy = Vector2.ClampMagnitude(new Vector2(rigidbody.velocity.x, 0), maxVelocity);
-		rigidbody.velocity = new Vector2(newVelocitiy.x, rigidbody.velocity.y);
-		rigidbody.AddForce(gravityVector, ForceMode2D.Force);
+        if (BoardManager.gravityDirection == "east" || BoardManager.gravityDirection == "west")
+        {
+            Vector2 newVelocity = Vector2.ClampMagnitude(new Vector2(0, rigidbody.velocity.y), maxVelocity);
+            rigidbody.velocity = new Vector2(rigidbody.velocity.x, newVelocity.y);
+        }
+        else
+        {
+            Vector2 newVelocity = Vector2.ClampMagnitude(new Vector2(rigidbody.velocity.x, 0), maxVelocity);
+            rigidbody.velocity = new Vector2(newVelocity.x, rigidbody.velocity.y);
+        }
+
+        rigidbody.AddForce(gravityVector, ForceMode2D.Force);
 	}
 	
 	void PlayBounceSound()

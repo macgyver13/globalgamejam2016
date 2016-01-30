@@ -2,50 +2,26 @@
 using System.Collections;
 
 public class BallController : MonoBehaviour {
-    public static BallController instance;
-
     public AudioSource audioSource;
 
     public AudioClip[] bounceSounds;
 
-    public float slowSpeed;
-    public float nomralSpeed;
-    public float fastSpeed;
+    public float[] force;
 
-    public float slowMaxVelocity;
-    public float normalMaxVelocity;
-    public float fastMaxVelocity;
+    public float movementForce;
 
-    public float smallJumpForce;
-    public float mediumJumpForce;
-    public float largeJumpForce;
-
-    float maxVelocity;
-    float movementForce;
-    Vector2 gravityVector;
+    public float maxVelocity;
 
     int count = 0;
-    float force;
     Rigidbody2D rigidbody;
-
-    void Awake()
-    {
-        if (instance == null)
-            instance = this;
-        SouthGravity();
-        MediumJump();
-        NormalSpeed();
-    }
 
     // Use this for initialization
     void Start () {
         rigidbody = transform.GetComponent<Rigidbody2D>();
     }
 	void Update() {
-		Vector2 newVelocitiy = Vector2.ClampMagnitude(rigidbody.velocity, maxVelocity);
-        rigidbody.velocity = new Vector2(newVelocitiy.x, rigidbody.velocity.y);
-        rigidbody.AddForce(gravityVector, ForceMode2D.Force);
-    }
+		rigidbody.velocity = Vector2.ClampMagnitude(rigidbody.velocity, maxVelocity);
+	}
 
     void PlayBounceSound()
     {
@@ -58,169 +34,27 @@ public class BallController : MonoBehaviour {
     {
         if (coll.gameObject.tag == "Floor")
         {
-            ContactPoint2D contact = coll.contacts[0];
-            Vector2 direction = (Vector2)transform.position - contact.point;
-            print(direction);
-            if (gravityVector.x > 0 && (direction.y != 0 || direction.x > 0))
-            {
-                return;
-            }
-            else if (gravityVector.x < 0 && (direction.y != 0 || direction.x < 0))
-            {
-                return;
-            }
-            else if (gravityVector.y > 0 && (direction.x != 0 || direction.y > 0))
-            {
-                return;
-            }
-            else if (gravityVector.y < 0 && (direction.x != 0 || direction.y < 0))
-            {
-                return;
-            }
-
-
             PlayBounceSound();
-            
-            if (gravityVector.x > 0)
+            rigidbody = transform.GetComponent<Rigidbody2D>();
+            if (rigidbody.velocity.y < 0)
             {
-                rigidbody.velocity = new Vector2(0.0f, rigidbody.velocity.y);
-                rigidbody.AddForce(Vector2.left * force);
+                rigidbody.velocity = new Vector2(rigidbody.velocity.x, 0);
+                rigidbody.AddForce(Vector2.up * force[count]);
+                count++;
+                if (count >= force.Length)
+                    count = 0;
             }
-            else if (gravityVector.x < 0)
-            {
-                rigidbody.velocity = new Vector2(0.0f, rigidbody.velocity.y);
-
-                rigidbody.AddForce(Vector2.right * force);
-            }
-            else if (gravityVector.y > 0)
-            {
-                rigidbody.velocity = new Vector2(rigidbody.velocity.x, 0.0f);
-
-                rigidbody.AddForce(Vector2.down * force);
-            }
-            else if (gravityVector.y < 0)
-            {
-                rigidbody.velocity = new Vector2(rigidbody.velocity.x, 0.0f);
-
-                rigidbody.AddForce(Vector2.up * force);
-            }
-            
-            
         } else if (coll.gameObject.tag == "Border") {
 			//End scene
 			Application.LoadLevel (Application.loadedLevel);
 		}
     }
 
-	public void Right()
-    {
-        if (gravityVector.x > 0)
-        {
-            rigidbody.AddForce(new Vector2(0, 1) * movementForce);
-        }
-        else if (gravityVector.x < 0)
-        {
-            rigidbody.AddForce(new Vector2(0, -1) * movementForce);
-        }
-        else if (gravityVector.y > 0)
-        {
-            rigidbody.AddForce(new Vector2(-1, 0) * movementForce);
-        }
-        else if (gravityVector.y < 0)
-        {
-            rigidbody.AddForce(new Vector2(1, 0) * movementForce);
-        }
+	public void Right() {
+		rigidbody.AddForce(new Vector2(1,0) * movementForce);
 	}
-	public void Left()
-    {
-        if (gravityVector.x > 0)
-        {
-            rigidbody.AddForce(new Vector2(0, -1) * movementForce);
-        }
-        else if (gravityVector.x < 0)
-        {
-            rigidbody.AddForce(new Vector2(0, 1) * movementForce);
-        }
-        else if (gravityVector.y > 0)
-        {
-            rigidbody.AddForce(new Vector2(1, 0) * movementForce);
-        }
-        else if (gravityVector.y < 0)
-        {
-            rigidbody.AddForce(new Vector2(-1, 0) * movementForce);
-        }
+	public void Left() {
+		rigidbody.AddForce(new Vector2(-1, 0) * movementForce);
 	}
 
-    public void BigSize()
-    {
-        transform.localScale.Set(2f,2f,2f);
-    }
-
-    public void NormalSize()
-    {
-        transform.localScale.Set(1f, 1f, 1f);
-    }
-
-    public void SmallSize()
-    {
-        transform.localScale.Set(.5f, .5f, .5f);
-    }
-
-    public void NoJump()
-    {
-        force = 0f;
-    }
-
-    public void SmallJump()
-    {
-        force = smallJumpForce;
-    }
-
-    public void MediumJump()
-    {
-        force = mediumJumpForce;
-    }
-
-    public void LargeJump()
-    {
-        force = largeJumpForce;
-    }
-
-    public void NorthGravity()
-    {
-        gravityVector = new Vector3(0.0f, 9.81f, 0.0f);
-    }
-
-    public void SouthGravity()
-    {
-        gravityVector = new Vector3(0.0f, -9.81f, 0.0f);
-    }
-
-    public void WestGravity()
-    {
-        gravityVector = new Vector3(-9.81f, 0.0f, 0.0f);
-    }
-
-    public void EastGravity()
-    {
-        gravityVector = new Vector3(9.81f, 0.0f, 0.0f);
-    }
-
-    public void SlowSpeed()
-    {
-        maxVelocity = slowMaxVelocity;
-        movementForce = slowSpeed;
-    }
-
-    public void NormalSpeed()
-    {
-        maxVelocity = normalMaxVelocity;
-        movementForce = nomralSpeed;
-    }
-
-    public void FastSpeed()
-    {
-        maxVelocity = fastMaxVelocity;
-        movementForce = fastSpeed;
-    }
 }

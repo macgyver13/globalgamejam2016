@@ -28,7 +28,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 157348}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.249781, y: -0.1893518, z: 0}
+  m_LocalPosition: {x: -8.03, y: -2.23, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -161,6 +161,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6023dd35c572c1446be277a27e44b2e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ballExplosion: {fileID: 176752, guid: 2e732afe4523e2a4ba636df32c7ece1f, type: 2}
   audioSource: {fileID: 8233874}
   bounceSounds:
   - {fileID: 8300000, guid: 44a6f6603cddaaf489fe98b10d52aeff, type: 3}

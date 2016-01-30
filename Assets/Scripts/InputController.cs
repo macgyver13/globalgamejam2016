@@ -14,7 +14,7 @@ public class InputController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-//#if (UNITY_IOS || UNITY_ANDROID) && !UNITY_EDITOR
+#if (UNITY_IOS || UNITY_ANDROID) && !UNITY_EDITOR
 		foreach (Touch touch in Input.touches) {
 			if (touch.phase != TouchPhase.Ended && touch.phase != TouchPhase.Canceled) {
 				if(!currentTouch) {
@@ -28,13 +28,14 @@ public class InputController : MonoBehaviour {
 				}
 			}
 		}
-//#else
+#else
 		if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D)) {
 			Right();
 		}
 		if (Input.GetKeyUp (KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A)) {
 			Left();		
 		}
+#endif
 	}
 
 	void CaculateTouch(Touch touch) {
@@ -49,10 +50,10 @@ public class InputController : MonoBehaviour {
 
 
 	void Right() {
-
+		ballController.Right ();
 	}
 
 	void Left () {
-
+		ballController.Left ();
 	}
 }

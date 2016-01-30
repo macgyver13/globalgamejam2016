@@ -33,6 +33,9 @@ public class BallController : MonoBehaviour {
 	float force;
     bool isOnGround = true;
 	Rigidbody2D rigidbody;
+
+    [HideInInspector]
+    public RelativeJoint2D jointConnectTo;
 	
 	void Awake()
 	{
@@ -146,12 +149,12 @@ public class BallController : MonoBehaviour {
 
     public bool IsOnGround()
     {
-        return isOnGround;
+        return isOnGround || jointConnectTo != null;
     }
 
     public void Jump()
     {
-        if (!isOnGround)
+        if (!IsOnGround())
             return;
         isOnGround = false;
         if (gravityVector.x > 0)

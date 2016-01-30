@@ -5,8 +5,9 @@ public class BallController : MonoBehaviour {
 	public static BallController instance;
 
     public GameObject ballExplosion;
+    public GameObject ballStandin;
 
-	public AudioSource audioSource;
+    public AudioSource audioSource;
 	
 	public AudioClip[] bounceSounds;
 
@@ -112,8 +113,10 @@ public class BallController : MonoBehaviour {
                 Application.LoadLevel(Application.loadedLevel);
             }
         } else if (coll.gameObject.tag == "End") {
-			//End scene
-            if(GameManager.instance != null)
+            //End scene
+            gameObject.SetActive(false);
+            Instantiate(ballStandin, transform.position, Quaternion.identity);
+            if (GameManager.instance != null)
             {
                 GameManager.instance.EndLevel();
             }
@@ -123,6 +126,23 @@ public class BallController : MonoBehaviour {
             }
 		}
 	}
+
+    void OnTriggerEnter2D(Collider2D coll)
+    {
+        if (coll.gameObject.tag == "End") {
+            //End scene
+            gameObject.SetActive(false);
+            Instantiate(ballStandin, transform.position, Quaternion.identity);
+            if (GameManager.instance != null)
+            {
+                GameManager.instance.EndLevel();
+            }
+            else
+            {
+                Application.LoadLevel(Application.loadedLevel);
+            }
+		}
+    }
 
     public bool IsOnGround()
     {

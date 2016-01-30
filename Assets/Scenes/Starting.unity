@@ -331,6 +331,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66c883581eac94ce4865513405ecacb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  modifierPrefabList: []
   FadeImg: {fileID: 382810265}
   level:
   - LevelUno

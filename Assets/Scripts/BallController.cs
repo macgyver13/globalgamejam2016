@@ -16,20 +16,6 @@ public class BallController : MonoBehaviour {
     void Start () {
         rigidbody = transform.GetComponent<Rigidbody2D>();
     }
-	
-	// Update is called once per frame
-	void Update () {
-        if (Input.GetKey(KeyCode.RightArrow))
-        {
-            rigidbody.AddForce(new Vector2(1,0) * movementForce);
-        }
-        if (Input.GetKey(KeyCode.LeftArrow))
-        {
-            rigidbody.AddForce(new Vector2(-1, 0) * movementForce);
-        }
-
-        rigidbody.velocity = Vector2.ClampMagnitude(rigidbody.velocity, maxVelocity);
-    }
 
     void OnCollisionEnter2D(Collision2D coll)
     {
@@ -46,4 +32,14 @@ public class BallController : MonoBehaviour {
             }
         }
     }
+
+	public void Right() {
+		rigidbody.AddForce(new Vector2(1,0) * movementForce);
+		rigidbody.velocity = Vector2.ClampMagnitude(rigidbody.velocity, maxVelocity);
+	}
+	public void Left() {
+		rigidbody.AddForce(new Vector2(-1, 0) * movementForce);
+		rigidbody.velocity = Vector2.ClampMagnitude(rigidbody.velocity, maxVelocity);
+	}
+
 }

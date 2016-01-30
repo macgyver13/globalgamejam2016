@@ -44,7 +44,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -150,6 +150,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentTouch: 1
+  ballController: {fileID: 0}
 --- !u!114 &11476682
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -170,10 +171,13 @@ MonoBehaviour:
   slowSpeed: 10
   nomralSpeed: 20
   fastSpeed: 30
-  maxVelocity: 10
+  slowMaxVelocity: 10
+  normalMaxVelocity: 20
+  fastMaxVelocity: 30
   smallJumpForce: 1500
   mediumJumpForce: 750
   largeJumpForce: 1000
+  gravityVector: {x: 0, y: 0}
 --- !u!212 &21233086
 SpriteRenderer:
   m_ObjectHideFlags: 1

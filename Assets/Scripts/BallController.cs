@@ -8,7 +8,9 @@ public class BallController : MonoBehaviour {
 
     public AudioClip[] bounceSounds;
 
-    public float movementForce;
+    public float slowSpeed;
+    public float nomralSpeed;
+    public float fastSpeed;
 
     public float maxVelocity;
 
@@ -17,6 +19,7 @@ public class BallController : MonoBehaviour {
     public float mediumJumpForce;
     public float largeJumpForce;
 
+    float movementForce;
     Vector2 gravityVector;
 
     int count = 0;
@@ -34,6 +37,7 @@ public class BallController : MonoBehaviour {
         rigidbody = transform.GetComponent<Rigidbody2D>();
         SouthGravity();
         MediumJump();
+        NormalSpeed();
     }
 	void Update() {
 		Vector2 newVelocitiy = Vector2.ClampMagnitude(rigidbody.velocity, maxVelocity);
@@ -54,7 +58,24 @@ public class BallController : MonoBehaviour {
         {
             PlayBounceSound();
             rigidbody.velocity = new Vector2(rigidbody.velocity.x, 0.0f);
-            rigidbody.AddForce(Vector2.up * force);
+            if (gravityVector.x > 0)
+            {
+                rigidbody.AddForce(Vector2.right * force);
+            }
+            else if (gravityVector.x < 0)
+            {
+                rigidbody.AddForce(Vector2.left * force);
+            }
+            else if (gravityVector.y > 0)
+            {
+                rigidbody.AddForce(Vector2.down * force);
+            }
+            else if (gravityVector.y < 0)
+            {
+                rigidbody.AddForce(Vector2.up * force);
+            }
+            
+            
         } else if (coll.gameObject.tag == "Border") {
 			//End scene
 			Application.LoadLevel (Application.loadedLevel);
@@ -73,6 +94,11 @@ public class BallController : MonoBehaviour {
     public void BigSize()
     {
         transform.localScale.Set(2f,2f,2f);
+    }
+
+    public void NormalSize()
+    {
+        transform.localScale.Set(1f, 1f, 1f);
     }
 
     public void SmallSize()
@@ -118,5 +144,20 @@ public class BallController : MonoBehaviour {
     public void EastGravity()
     {
         gravityVector = new Vector3(9.81f, 0.0f, 0.0f);
+    }
+
+    public void SlowSpeed()
+    {
+        movementForce = slowSpeed;
+    }
+
+    public void NormalSpeed()
+    {
+        movementForce = nomralSpeed;
+    }
+
+    public void FastSpeed()
+    {
+        movementForce = fastSpeed;
     }
 }

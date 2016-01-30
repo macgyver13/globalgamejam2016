@@ -12,6 +12,8 @@ public class MovingPlatformController : MonoBehaviour {
     public float speed;
     public float time;
 
+    public bool sticky;
+
     [HideInInspector]
     public bool useBoth;
     public bool rotate;
@@ -24,7 +26,6 @@ public class MovingPlatformController : MonoBehaviour {
     public bool reverseInitialLookDirection;
     public bool lookVertically;
     public bool lookHorizontally;
-
 
     private Vector2 origin;
     private Vector3 originRotation;
@@ -143,6 +144,16 @@ public class MovingPlatformController : MonoBehaviour {
                 break;
             }
 
+        }
+    }
+
+    public void ApplyTheSticky(Collider2D coll, RelativeJoint2D jointToApplyStick)
+    {
+        GameObject otherObject = coll.gameObject;
+        if (otherObject.tag == "Ball" && sticky)
+        {
+            jointToApplyStick.connectedBody = otherObject.GetComponent<Rigidbody2D>();
+            otherObject.GetComponent<BallController>().jointConnectTo = jointToApplyStick;
         }
     }
 

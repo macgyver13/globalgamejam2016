@@ -32,6 +32,9 @@ public class BallController : MonoBehaviour {
 	float force;
     bool isOnGround = true;
 	Rigidbody2D rigidbody;
+
+    [HideInInspector]
+    public RelativeJoint2D jointConnectTo;
 	
 	void Awake()
 	{

@@ -1,13 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
-using Time;
 
 public class GameManager : MonoBehaviour {
 
 	private static GameManager instance = null;
 
 	public int score;
-	public var totalTime;
+	public float totalTime;
 
 	public static GameManager GetInstance()
 	{

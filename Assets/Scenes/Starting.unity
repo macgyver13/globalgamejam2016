@@ -292,22 +292,21 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 11454692, guid: b9da8a59e9174154eaeab7e8e7e94078, type: 2}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300012, guid: 2d9d9f49e3436cb408fb90ad342baa3e,
-        type: 3}
-    - target: {fileID: 22491962, guid: b9da8a59e9174154eaeab7e8e7e94078, type: 2}
-      propertyPath: m_SizeDelta.x
-      value: 56
+    - target: {fileID: 11439686, guid: b9da8a59e9174154eaeab7e8e7e94078, type: 2}
+      propertyPath: m_Color.r
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 22491962, guid: b9da8a59e9174154eaeab7e8e7e94078, type: 2}
-      propertyPath: m_SizeDelta.y
-      value: 58
+    - target: {fileID: 11439686, guid: b9da8a59e9174154eaeab7e8e7e94078, type: 2}
+      propertyPath: m_Color.g
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 11492602, guid: b9da8a59e9174154eaeab7e8e7e94078, type: 2}
-      propertyPath: iconGapDistance
-      value: 40
+    - target: {fileID: 11439686, guid: b9da8a59e9174154eaeab7e8e7e94078, type: 2}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11439686, guid: b9da8a59e9174154eaeab7e8e7e94078, type: 2}
+      propertyPath: m_Color.a
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b9da8a59e9174154eaeab7e8e7e94078, type: 2}

@@ -22,6 +22,8 @@ public class GameManager : MonoBehaviour {
     bool fadeToBlack = false;
     bool fadeToClear = false;
 
+    AudioSource audioSource;
+
     //Awake is always called before any Start functions
     void Awake()
 	{
@@ -45,6 +47,11 @@ public class GameManager : MonoBehaviour {
 
         //Call the InitGame function to initialize the first level 
         LoadLevel();
+    }
+
+    void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
     }
 
     IEnumerator startLoadLevel()
@@ -136,5 +143,10 @@ public class GameManager : MonoBehaviour {
         levelIndex++;
         LoadLevel();
         fadeToClear = true;
+    }
+
+    public void ChangeGravity()
+    {
+        audioSource.pitch = Random.Range(.9f, 1.1f);
     }
 }

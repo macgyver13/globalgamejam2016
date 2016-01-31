@@ -43,6 +43,11 @@ public class BoardManager : MonoBehaviour {
 	void Update () {
         if (Input.GetKeyDown(KeyCode.Space) && BallController.instance.IsOnGround())
         {
+			if (BallController.instance.jointConnectTo != null) {
+				BallController.instance.jointConnectTo.connectedBody = null;
+				BallController.instance.jointConnectTo = null;
+			}
+
             if (modifierPosition < modifierList.Length) {
 				Debug.Log ("Set Modifier" + modifierList [modifierPosition]);
 				SetModifier ();

@@ -440,6 +440,9 @@ MonoBehaviour:
   - Level 2
   - Level 3
   - Level 4
+  - Level 5
+  - Level 6
+  - Level 7
   score: 0
   totalTime: 0
   sceneStarting: 1

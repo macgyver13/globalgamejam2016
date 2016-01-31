@@ -13,7 +13,6 @@ public enum ballModifier{
 
 public class BoardManager : MonoBehaviour {
 
-	public int modifierDuration = 5;
 	public ballModifier[] modifierList;
 	public int modifierPosition = 0;
 
@@ -24,39 +23,33 @@ public class BoardManager : MonoBehaviour {
 	}
 
 	void Start(){
-		//ResetBoard ();
+		ResetBoard ();
 		//SetModifier ();
+
+
 	}
 
 	void ResetBoard(){
 //		totalTime = 0;
 		modifierPosition = 0;
+		GUIController.instance.modifierList = modifierList;
+		GUIController.instance.SetupIcons ();
 	}
 
 	// Update is called once per frame
 	void Update () {
-        //totalTime += Time.deltaTime;
-
-        ////Debug.Log("Update Time = " + totalTime + " ____ " + modifierDuration * modifierList.Length);
-        //if (totalTime >= modifierDuration * modifierList.Length) {
-        //	//End level
-        //	//Application.LoadLevel (Application.loadedLevel);
-        //	ResetBoard();
-        //	GameManager.instance.EndLevel();
-        //}
-        //if (totalTime > modifierDuration * (modifierPosition + 1)) {
-        //	//send the calculated position
-
-        //	Debug.Log ("Set Modifier" + modifierList [modifierPosition]);
-        //	modifierPosition += 1;
-        //          SetModifier();
-        //      }
 
         if(Input.GetKeyDown(KeyCode.Space) && BallController.instance.IsOnGround())
         {
-            Debug.Log("Set Modifier" + modifierList[modifierPosition]);
-            SetModifier();
-            modifierPosition += 1;
+			if (modifierPosition < modifierList.Length) {
+				Debug.Log ("Set Modifier" + modifierList [modifierPosition]);
+				SetModifier ();
+
+				modifierPosition += 1;
+				GUIController.instance.SetModifierPosition (modifierPosition);
+			} else {
+				GameManager.instance.ResetLevel ();
+			}
         }
 	}
 

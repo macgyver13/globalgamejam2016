@@ -134,6 +134,7 @@ public class GameManager : MonoBehaviour {
     }
 
 	public GameObject GetModifierCard(ballModifier ballMod){
+//		Debug.Log ("GetMod Card: " + ballMod + " mod List:" + modifierPrefabList.Length);
 		return modifierPrefabList[(int)ballMod];
 	}
 

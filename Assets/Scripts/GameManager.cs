@@ -125,7 +125,7 @@ public class GameManager : MonoBehaviour {
 
     IEnumerator EndLevelAfterDelay()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(.5f);
         fadeToBlack = true;
         yield return new WaitForSeconds(.5f);
         levelIndex++;

@@ -289,7 +289,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _transform: {fileID: 261152066}
-  ballTransform: {fileID: 0}
+  ballTransform: {fileID: 1322396572}
   previousBallPosition: {x: 0, y: 0, z: 0}
   scale: 4
   buffer: 0.1

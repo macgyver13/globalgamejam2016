@@ -2726,6 +2726,7 @@ Transform:
   m_Children:
   - {fileID: 714707448}
   - {fileID: 1087545662}
+  - {fileID: 1328158178}
   m_Father: {fileID: 0}
   m_RootOrder: 15
 --- !u!60 &907982810
@@ -2763,7 +2764,7 @@ MonoBehaviour:
   bounceAnimator: {fileID: 714707450}
   bounced: 0
   trajectoryObjectNorth: {fileID: 0}
-  trajectoryObjectSouth: {fileID: 0}
+  trajectoryObjectSouth: {fileID: 1328158178}
   trajectoryObjectEast: {fileID: 0}
   trajectoryObjectWest: {fileID: 1087545662}
   force: 5
@@ -4695,6 +4696,65 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1070378622}
   m_RootOrder: 1
+--- !u!1 &1328158177
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 182076, guid: 3fd0367c701f1d041b904cc9a00e10d9, type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1328158178}
+  - 212: {fileID: 1328158179}
+  m_Layer: 0
+  m_Name: TrajectoryObject (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1328158178
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 442430, guid: 3fd0367c701f1d041b904cc9a00e10d9, type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1328158177}
+  m_LocalRotation: {x: 0, y: 0, z: 0.9993568, w: -0.03586093}
+  m_LocalPosition: {x: -11.2987585, y: 15.277236, z: 0}
+  m_LocalScale: {x: 0.64704, y: 1.0231541, z: 1.6920348}
+  m_Children: []
+  m_Father: {fileID: 907982809}
+  m_RootOrder: 2
+--- !u!212 &1328158179
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 21248218, guid: 3fd0367c701f1d041b904cc9a00e10d9,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1328158177}
+  m_Enabled: 0
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_ReflectionProbeUsage: 0
+  m_ProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: 9ed526436f6b12b41a78903e71a5156a, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
 --- !u!1 &1357567163
 GameObject:
   m_ObjectHideFlags: 0

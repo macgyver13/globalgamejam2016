@@ -15,6 +15,11 @@ public class BoardManager : MonoBehaviour {
 
 	public ballModifier[] modifierList;
 	public int modifierPosition = 0;
+	public static BoardManager instance;
+
+	void Awake() {
+		instance = this;
+	}
 
 	//Clears our list gridPositions and prepares it to generate a new board.
 	void InitialiseList ()
@@ -41,24 +46,28 @@ public class BoardManager : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetKeyDown(KeyCode.Space) && BallController.instance.IsOnGround())
-        {
+		ActionFunction ();
+	}
+
+	public void ActionFunction() {
+		if (Input.GetKeyDown(KeyCode.Space) && BallController.instance.IsOnGround())
+		{
 			if (BallController.instance.jointConnectTo != null) {
 				BallController.instance.jointConnectTo.connectedBody = null;
 				BallController.instance.jointConnectTo = null;
 			}
 
-            if (modifierPosition < modifierList.Length) {
+			if (modifierPosition < modifierList.Length) {
 				Debug.Log ("Set Modifier" + modifierList [modifierPosition]);
 				SetModifier ();
 
 				modifierPosition += 1;
-                if(GUIController.instance != null)
-                    GUIController.instance.SetModifierPosition(modifierPosition);
-            } else {
+				if(GUIController.instance != null)
+					GUIController.instance.SetModifierPosition(modifierPosition);
+			} else {
 				GameManager.instance.ResetLevel ();
 			}
-        }
+		}
 	}
 
 

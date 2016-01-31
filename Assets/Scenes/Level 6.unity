@@ -2486,6 +2486,18 @@ Prefab:
       propertyPath: TeleportLocation
       value: 
       objectReference: {fileID: 922744236}
+    - target: {fileID: 493786, guid: 8efbf6b5c6489a947b6c5f3980972ba8, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -6.58
+      objectReference: {fileID: 0}
+    - target: {fileID: 493786, guid: 8efbf6b5c6489a947b6c5f3980972ba8, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 493786, guid: 8efbf6b5c6489a947b6c5f3980972ba8, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -15.35
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8efbf6b5c6489a947b6c5f3980972ba8, type: 2}
   m_IsPrefabParent: 0

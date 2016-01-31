@@ -6,6 +6,7 @@ public class BallToPortal : MonoBehaviour {
     public Transform portal;
 
     SpriteRenderer spriteRenderer;
+    AudioSource audioSource;
 
     Vector2 startPosition;
     float time;
@@ -14,12 +15,15 @@ public class BallToPortal : MonoBehaviour {
 	void OnEnable () {
         startPosition = transform.position;
         spriteRenderer = GetComponent<SpriteRenderer>();
+        audioSource = GetComponent<AudioSource>();
         StartCoroutine(animate());
     }
 
     IEnumerator animate()
     {
+        audioSource.Play();
         yield return null;
+        
         Hashtable arg = iTween.Hash("position", portal.position, "time", 1f);
         iTween.MoveTo(gameObject, arg);
     }

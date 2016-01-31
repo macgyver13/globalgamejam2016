@@ -11,10 +11,12 @@ public class CameraController : MonoBehaviour {
 	public float cameraHeight = 2.5f; // height of camera adjustable
 	public Vector2 velocity; // speed of camera movement
 	private float currentYPosition;
+	public bool moving;
 
 	// Use this for initialization
 	void Start () {
 		currentYPosition = _transform.position.y;
+		moving = false;
 	}
 	
 	// Update is called once per frame
@@ -31,11 +33,15 @@ public class CameraController : MonoBehaviour {
 
 		if (ball.position.y > topThresh) {
 			newYPosition = potentialNewY;
-			PerlinShake.instance.CommonShake();
+			moving = true;
+		} else {
+			moving = false;
 		}
 		if (ball.position.y < bottomThresh) {
 			newYPosition = potentialNewY;
-			PerlinShake.instance.CommonShake();
+			moving = true;
+		} else {
+			moving = false;
 		}
 
 		transform.position = new Vector3(Mathf.SmoothDamp(_transform.position.x, ball.position.x, ref velocity.x, smoothTime), newYPosition, _transform.position.z);

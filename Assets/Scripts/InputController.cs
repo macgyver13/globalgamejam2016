@@ -50,7 +50,7 @@ public class InputController : MonoBehaviour {
 
 	}
 	
-	void CalculateTouch(Touch touch) {
+	void CaculateTouch(Touch touch) {
 		float mid = Screen.width * 0.5f;
 		if (touch.position.x < mid) {
             Right();

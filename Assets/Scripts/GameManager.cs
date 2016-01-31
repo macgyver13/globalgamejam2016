@@ -83,6 +83,11 @@ public class GameManager : MonoBehaviour {
                 fadeTime = 0f;
             }
         }
+
+		if (Input.GetKey (KeyCode.LeftShift) && Input.GetKey (KeyCode.T)) {
+			levelIndex++;
+			LoadLevel ();
+		}
     }
 
     public void FadeOut()

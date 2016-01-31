@@ -180,6 +180,7 @@ MonoBehaviour:
   mediumJumpForce: 1300
   largeJumpForce: 1000
   gravityVector: {x: 0, y: 0}
+  jointConnectTo: {fileID: 0}
 --- !u!212 &21233086
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -253,6 +254,11 @@ Prefab:
       propertyPath: ballStandin
       value: 
       objectReference: {fileID: 123126, guid: 98553d54ec5e8ec438720e4362a06e89, type: 2}
+    - target: {fileID: 0}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 9ed526436f6b12b41a78903e71a5156a,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 157348}

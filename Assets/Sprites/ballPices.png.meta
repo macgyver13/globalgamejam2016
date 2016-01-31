@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 8eef81c06679ed9458a9a66dcfb7e0a9
-timeCreated: 1454177189
+timeCreated: 1454202301
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -60,129 +60,120 @@ TextureImporter:
     - name: ballPices_0
       rect:
         serializedVersion: 2
-        x: 17
-        y: 175
-        width: 59
-        height: 70
+        x: 0
+        y: 196
+        width: 52
+        height: 60
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -7.5, y: -35}
-        - {x: 29.5, y: -35}
-        - {x: 29.5, y: -9}
-        - {x: 7.5, y: 35}
-        - {x: -14.5, y: 35}
-        - {x: -29.5, y: 22}
-        - {x: -29.5, y: -21}
+      - - {x: -5, y: 30}
+        - {x: -26, y: 4}
+        - {x: -26, y: -30}
+        - {x: 11, y: -30}
+        - {x: 25, y: -29}
+        - {x: 26, y: -29}
+        - {x: 26, y: -10}
+        - {x: 19, y: 30}
     - name: ballPices_1
       rect:
         serializedVersion: 2
-        x: 91
-        y: 174
-        width: 54
-        height: 59
+        x: 81
+        y: 127
+        width: 55
+        height: 78
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -18, y: 29.5}
-        - {x: -27, y: 24.5}
-        - {x: -27, y: 12.5}
-        - {x: -2, y: -29.5}
-        - {x: 27, y: -29.5}
-        - {x: 27, y: 29.5}
+      - - {x: 16.5, y: 39}
+        - {x: -19.5, y: 39}
+        - {x: -27.5, y: 30}
+        - {x: -27.5, y: -5}
+        - {x: 10.5, y: -39}
+        - {x: 16.5, y: -39}
+        - {x: 27.5, y: 4}
+        - {x: 27.5, y: 22}
+        - {x: 23.5, y: 27}
     - name: ballPices_2
       rect:
         serializedVersion: 2
-        x: 188
-        y: 169
-        width: 48
-        height: 64
+        x: 161
+        y: 188
+        width: 91
+        height: 67
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -24, y: 32}
-        - {x: -24, y: -24}
-        - {x: -3, y: -31}
-        - {x: 6, y: -32}
-        - {x: 24, y: -32}
-        - {x: 24, y: -2}
-        - {x: 4, y: 32}
+      - - {x: -45.5, y: 33.5}
+        - {x: -45.5, y: -31.5}
+        - {x: -44.5, y: -33.5}
+        - {x: 45.5, y: -33.5}
+        - {x: 45.5, y: 30.5}
+        - {x: 26.5, y: 33.5}
     - name: ballPices_3
       rect:
         serializedVersion: 2
-        x: 19
-        y: 84
-        width: 52
-        height: 70
+        x: 15
+        y: 97
+        width: 46
+        height: 51
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -4, y: 35}
-        - {x: -9, y: 23}
-        - {x: -20, y: 33}
-        - {x: -26, y: 33}
-        - {x: -26, y: -22}
-        - {x: -25, y: -27}
-        - {x: -14, y: -35}
-        - {x: -4, y: -35}
-        - {x: 26, y: -1}
-        - {x: 26, y: 16}
-        - {x: 10, y: 35}
+      - - {x: -23, y: 25.5}
+        - {x: -23, y: -4.5}
+        - {x: -13, y: -24.5}
+        - {x: -11, y: -25.5}
+        - {x: 10, y: -25.5}
+        - {x: 23, y: -13.5}
+        - {x: 23, y: 12.5}
+        - {x: 12, y: 25.5}
     - name: ballPices_4
       rect:
         serializedVersion: 2
-        x: 120
-        y: 112
-        width: 34
-        height: 28
+        x: 12
+        y: 16
+        width: 80
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
+      outline:
+      - - {x: -40, y: -13}
+        - {x: -37, y: -19}
+        - {x: -30, y: -24}
+        - {x: 30, y: -24}
+        - {x: 40, y: -21}
+        - {x: 40, y: -4}
+        - {x: 32, y: 7}
+        - {x: -6, y: 24}
+        - {x: -25, y: 24}
+        - {x: -40, y: 4}
     - name: ballPices_5
       rect:
         serializedVersion: 2
-        x: 8
-        y: 7
-        width: 69
-        height: 59
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -34.5, y: -11.5}
-        - {x: -24.5, y: -23.5}
-        - {x: -11.5, y: -29.5}
-        - {x: 34.5, y: -29.5}
-        - {x: 34.5, y: -19.5}
-        - {x: 15.5, y: 22.5}
-        - {x: 11.5, y: 29.5}
-        - {x: -3.5, y: 29.5}
-        - {x: -34.5, y: 5.5}
-    - name: ballPices_6
-      rect:
-        serializedVersion: 2
-        x: 178
+        x: 181
         y: 19
-        width: 70
-        height: 69
+        width: 63
+        height: 67
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: 35, y: 28.5}
-        - {x: 25, y: 34.5}
-        - {x: -35, y: 34.5}
-        - {x: -35, y: 9.5}
-        - {x: -14, y: -34.5}
-        - {x: 4, y: -34.5}
-        - {x: 26, y: -12.5}
-        - {x: 31, y: -1.5}
-        - {x: 35, y: 7.5}
+      - - {x: 18.5, y: 33.5}
+        - {x: -7.5, y: 33.5}
+        - {x: -26.5, y: 29.5}
+        - {x: -31.5, y: 5.5}
+        - {x: -31.5, y: -32.5}
+        - {x: -26.5, y: -33.5}
+        - {x: 13.5, y: -33.5}
+        - {x: 28.5, y: -21.5}
+        - {x: 31.5, y: -4.5}
+        - {x: 31.5, y: 27.5}
     outline: []
   spritePackingTag: 
   userData: 

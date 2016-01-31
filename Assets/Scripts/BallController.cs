@@ -31,7 +31,7 @@ public class BallController : MonoBehaviour {
 	public bool canControl = true;
 	int count = 0;
 	float force;
-    bool isOnGround = true;
+    public bool isOnGround = true;
 	Rigidbody2D rigidbody;
 
     [HideInInspector]

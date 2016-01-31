@@ -21,13 +21,18 @@ public class ParallaxController : MonoBehaviour {
 		float topY = previousBallPosition.y + buffer;
 		float bottomY = previousBallPosition.y - buffer;
 
-		if ((ballTransform.position.y > topY) || (ballTransform.position.y < bottomY) || 
-			(ballTransform.position.x > topX) || (ballTransform.position.x < bottomX))  {
+		print ("ballTransform: " + ballTransform);
+		print ("previousBallPosition: " + previousBallPosition);
+
+		if ((ballTransform.position.y > topY) || (ballTransform.position.y < bottomY) ||
+		    (ballTransform.position.x > topX) || (ballTransform.position.x < bottomX)) {
 
 			Vector3 newPosition = CalculateBackgroundPosition ();
 			print (newPosition);
 
 			transform.position = new Vector3 (Mathf.SmoothDamp (_transform.position.x, newPosition.x, ref velocity.x, smoothTime), Mathf.SmoothDamp (_transform.position.y, newPosition.y, ref velocity.y, smoothTime), _transform.position.z);
+		} else {
+			previousBallPosition = ballTransform.position;
 		}
 	}
 

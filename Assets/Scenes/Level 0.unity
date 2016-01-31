@@ -283,29 +283,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   platformAnimator: {fileID: 870735597}
---- !u!1 &673369506
+--- !u!1 &724141954
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 673369508}
-  - 212: {fileID: 673369507}
-  - 114: {fileID: 673369509}
+  - 4: {fileID: 724141956}
+  - 114: {fileID: 724141957}
+  - 212: {fileID: 724141955}
   m_Layer: 0
-  m_Name: space
+  m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!212 &673369507
+--- !u!212 &724141955
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 673369506}
+  m_GameObject: {fileID: 724141954}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -324,36 +324,36 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
+  m_SortingLayerID: -400942765
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 3130b21ac2f0547a79a968736efeb54e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
---- !u!4 &673369508
+--- !u!4 &724141956
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 673369506}
+  m_GameObject: {fileID: 724141954}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.2, y: -33.3, z: 0}
+  m_LocalPosition: {x: 4.4, y: -33.6, z: 0}
   m_LocalScale: {x: 9, y: 9, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
---- !u!114 &673369509
+  m_RootOrder: 4
+--- !u!114 &724141957
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 673369506}
+  m_GameObject: {fileID: 724141954}
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0c083291bb96b449b8cb29df07f5dafd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _transform: {fileID: 673369508}
+  _transform: {fileID: 724141956}
   ballTransform: {fileID: 600398687}
   previousBallPosition: {x: 0, y: 0, z: 0}
   scale: 1
@@ -555,7 +555,7 @@ Transform:
   - {fileID: 168995153}
   - {fileID: 670435666}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
 --- !u!1001 &1604534941
 Prefab:
   m_ObjectHideFlags: 0
@@ -647,7 +647,7 @@ Transform:
   - {fileID: 12058543}
   - {fileID: 1916367619}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
 --- !u!1 &1916367618
 GameObject:
   m_ObjectHideFlags: 0
@@ -690,7 +690,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 1023085875}
   cameraController: {fileID: 2058562152}
-  parallaxController: {fileID: 673369509}
+  parallaxController: {fileID: 724141957}
 --- !u!61 &1916367621
 BoxCollider2D:
   m_ObjectHideFlags: 0

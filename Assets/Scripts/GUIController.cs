@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System.Collections.Generic;
 
 public class GUIController : MonoBehaviour {
     public GameObject[] modifierPrefabList;
@@ -11,7 +12,7 @@ public class GUIController : MonoBehaviour {
 	public RectTransform infoRectTransform;
 	public Transform infoTransform;
 	public RectTransform selectionIconTransform;
-
+	private List<RectTransform> mods;
 	public static GUIController instance = null;
 	public static GUIController GetInstance()
 	{
@@ -78,6 +79,7 @@ public class GUIController : MonoBehaviour {
 	}
 
 	public void SetupIcons(){
+		mods = new List<RectTransform> ();
         //Clean previous images if present
         Component[] images = GetComponentsInChildren<Image>();
 		foreach (Image image in images) {
@@ -96,10 +98,11 @@ public class GUIController : MonoBehaviour {
 			startingXPostion = infoRectTransform.rect.center.x - itemTransform.rect.width - totalWidth / 2;
 			startingMaxYPostion = infoRectTransform.rect.yMax;
 
+			float factor = itemTransform.rect.width + (itemTransform.rect.width * selectionIconBorderPadding);
 			//locate the arrow
 			int position = 0;
-			selectionIconTransform.offsetMin = new Vector2 (startingXPostion + position * iconGapDistance + position * itemTransform.rect.width - selectionIconBorderPadding, startingMaxYPostion - itemTransform.rect.height - selectionIconBorderPadding);
-			selectionIconTransform.offsetMax = new Vector2 (startingXPostion + position * iconGapDistance + position * itemTransform.rect.width + itemTransform.rect.width + selectionIconBorderPadding, startingMaxYPostion + selectionIconBorderPadding);
+//			selectionIconTransform.offsetMin = new Vector2 (startingXPostion + position * iconGapDistance + position * itemTransform.rect.width - factor, startingMaxYPostion - factor);
+//			selectionIconTransform.offsetMax = new Vector2 (startingXPostion + position * iconGapDistance + position * itemTransform.rect.width + factor, startingMaxYPostion + factor);
 		}
 		for (int i = 0; i < modifierList.Length; i++) {
 			//Debug.Log ("X " + startingXPostion + " Y:" + startingMaxYPostion + " I:" + i);
@@ -111,18 +114,25 @@ public class GUIController : MonoBehaviour {
 			//			Debug.Log ("left X " + startingXPostion + i * iconGapDistance + " right X:" + startingXPostion + i * iconGapDistance + itemTransform.rect.width + " I:" + i);
 			rectTransform.offsetMin = new Vector2 (startingXPostion + i * iconGapDistance + i * itemTransform.rect.width, startingMaxYPostion - itemTransform.rect.height);
 			rectTransform.offsetMax = new Vector2 (startingXPostion + i * iconGapDistance + i * itemTransform.rect.width + itemTransform.rect.width, startingMaxYPostion);
+			mods.Add (rectTransform);
+		}
+		if (modifierList.Length > 0) {
+			selectionIconTransform.localPosition = mods [0].localPosition;
 		}
 	}
 
 	public void SetModifierPosition(int position){
 //		Debug.Log ("Action: List Length:" + modifierList.Length);
 		if (position < modifierList.Length) {
-			RectTransform itemTransform = GetModifierCard (modifierList [0]).GetComponent<RectTransform> ();
+			RectTransform itemTransform = GetModifierCard (modifierList [position]).GetComponent<RectTransform> ();
 			float totalWidth = modifierList.Length * itemTransform.rect.width + (modifierList.Length - 1 * iconGapDistance);
 			float startingXPostion = infoRectTransform.rect.center.x - itemTransform.rect.width - totalWidth / 2;
 			float startingMaxYPostion = infoRectTransform.rect.yMax;
-			selectionIconTransform.offsetMin = new Vector2 (startingXPostion + position * iconGapDistance + position * itemTransform.rect.width - selectionIconBorderPadding, startingMaxYPostion - itemTransform.rect.height - selectionIconBorderPadding);
-			selectionIconTransform.offsetMax = new Vector2 (startingXPostion + position * iconGapDistance + position * itemTransform.rect.width + itemTransform.rect.width + selectionIconBorderPadding, startingMaxYPostion + selectionIconBorderPadding);
+			float factor = itemTransform.rect.width + (itemTransform.rect.width * selectionIconBorderPadding);
+//
+//			selectionIconTransform.offsetMin = new Vector2 (startingXPostion + position * iconGapDistance + position * itemTransform.rect.width - factor, startingMaxYPostion - factor);
+//			selectionIconTransform.offsetMax = new Vector2 (startingXPostion + position * iconGapDistance + position * itemTransform.rect.width + factor, startingMaxYPostion + factor);
+			selectionIconTransform.localPosition = mods [position].localPosition;
 		}
 	}
 

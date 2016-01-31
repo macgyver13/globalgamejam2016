@@ -2180,12 +2180,12 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Points:
     m_Paths:
-    - - {x: 1.1415284, y: -0.2519983}
-      - {x: 1.0296686, y: -2.1346617}
-      - {x: -1.779449, y: -2.1574955}
-      - {x: -3.2022517, y: -2.8343074}
-      - {x: -7.3135242, y: -1.6120954}
-      - {x: -6.633744, y: -0.45349997}
+    - - {x: -0.48315674, y: -0.84478885}
+      - {x: -0.9682546, y: -2.0248861}
+      - {x: -2.8772092, y: -2.2233615}
+      - {x: -5.244086, y: -2.7684417}
+      - {x: -9.201673, y: -1.7218714}
+      - {x: -8.653623, y: -0.2339477}
 --- !u!1 &1052017634
 GameObject:
   m_ObjectHideFlags: 0
@@ -2321,6 +2321,30 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22431514, guid: 2ed6f2f2385ae164b9a34b88f9c89dbd, type: 2}
       propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11451054, guid: 2ed6f2f2385ae164b9a34b88f9c89dbd, type: 2}
+      propertyPath: iconGapDistance
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 11451054, guid: 2ed6f2f2385ae164b9a34b88f9c89dbd, type: 2}
+      propertyPath: selectionIconBorderPadding
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 22457824, guid: 2ed6f2f2385ae164b9a34b88f9c89dbd, type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 22457824, guid: 2ed6f2f2385ae164b9a34b88f9c89dbd, type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 22431514, guid: 2ed6f2f2385ae164b9a34b88f9c89dbd, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 22431514, guid: 2ed6f2f2385ae164b9a34b88f9c89dbd, type: 2}
+      propertyPath: m_LocalScale.y
       value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []

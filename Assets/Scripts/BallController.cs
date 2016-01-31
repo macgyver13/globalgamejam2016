@@ -120,7 +120,8 @@ public class BallController : MonoBehaviour {
         } else if (coll.gameObject.tag == "End") {
             //End scene
             gameObject.SetActive(false);
-            Instantiate(ballStandin, transform.position, Quaternion.identity);
+            GameObject ballS = (GameObject)Instantiate(ballStandin, transform.position, Quaternion.identity);
+            ballS.GetComponent<BallToPortal>().portal = coll.gameObject.transform;
             if (GameManager.instance != null)
             {
                 GameManager.instance.EndLevel();
@@ -137,7 +138,8 @@ public class BallController : MonoBehaviour {
         if (coll.gameObject.tag == "End") {
             //End scene
             gameObject.SetActive(false);
-            Instantiate(ballStandin, transform.position, Quaternion.identity);
+            GameObject ballS = (GameObject)Instantiate(ballStandin, transform.position, Quaternion.identity);
+            ballS.GetComponent<BallToPortal>().portal = coll.gameObject.transform;
             if (GameManager.instance != null)
             {
                 GameManager.instance.EndLevel();

@@ -600,15 +600,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 415252, guid: 472ee0265b1024eac95bd80e3e6365f1, type: 2}
       propertyPath: m_LocalScale.x
-      value: 6.831743
+      value: 3.491571
       objectReference: {fileID: 0}
     - target: {fileID: 415252, guid: 472ee0265b1024eac95bd80e3e6365f1, type: 2}
       propertyPath: m_LocalScale.y
-      value: 4.1799703
+      value: 2.1363015
       objectReference: {fileID: 0}
     - target: {fileID: 415252, guid: 472ee0265b1024eac95bd80e3e6365f1, type: 2}
       propertyPath: m_LocalScale.z
-      value: 10.154719
+      value: 5.18988
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 472ee0265b1024eac95bd80e3e6365f1, type: 2}
@@ -2356,11 +2356,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 415252, guid: 472ee0265b1024eac95bd80e3e6365f1, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -33.2
+      value: -35.26
       objectReference: {fileID: 0}
     - target: {fileID: 415252, guid: 472ee0265b1024eac95bd80e3e6365f1, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 11.9
+      value: 12.23
       objectReference: {fileID: 0}
     - target: {fileID: 415252, guid: 472ee0265b1024eac95bd80e3e6365f1, type: 2}
       propertyPath: m_LocalPosition.z
@@ -2388,15 +2388,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 415252, guid: 472ee0265b1024eac95bd80e3e6365f1, type: 2}
       propertyPath: m_LocalScale.x
-      value: 6.831742
+      value: 4.2073827
       objectReference: {fileID: 0}
     - target: {fileID: 415252, guid: 472ee0265b1024eac95bd80e3e6365f1, type: 2}
       propertyPath: m_LocalScale.y
-      value: 4.1799717
+      value: 2.5742688
       objectReference: {fileID: 0}
     - target: {fileID: 415252, guid: 472ee0265b1024eac95bd80e3e6365f1, type: 2}
       propertyPath: m_LocalScale.z
-      value: 10.154719
+      value: 6.253865
       objectReference: {fileID: 0}
     - target: {fileID: 100856, guid: 472ee0265b1024eac95bd80e3e6365f1, type: 2}
       propertyPath: m_Name

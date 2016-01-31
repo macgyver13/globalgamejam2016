@@ -8,6 +8,7 @@ public class Sticky : MonoBehaviour {
     void OnTriggerEnter2D(Collider2D coll)
     {
         Debug.Log("Trigger entered");
+		mpController.ApplyTheSticky (coll, GetComponent<RelativeJoint2D> ());
         //mpController.StickyTrigger(coll, GetComponent<RelativeJoint2D>());
     }
 }

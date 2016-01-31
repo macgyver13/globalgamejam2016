@@ -1485,11 +1485,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11451054, guid: 2ed6f2f2385ae164b9a34b88f9c89dbd, type: 2}
       propertyPath: iconGapDistance
-      value: 70
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 11451054, guid: 2ed6f2f2385ae164b9a34b88f9c89dbd, type: 2}
       propertyPath: selectionIconBorderPadding
-      value: 40
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 22431514, guid: 2ed6f2f2385ae164b9a34b88f9c89dbd, type: 2}
       propertyPath: m_LocalScale.x
@@ -1498,6 +1498,14 @@ Prefab:
     - target: {fileID: 22431514, guid: 2ed6f2f2385ae164b9a34b88f9c89dbd, type: 2}
       propertyPath: m_LocalScale.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 22457824, guid: 2ed6f2f2385ae164b9a34b88f9c89dbd, type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 22457824, guid: 2ed6f2f2385ae164b9a34b88f9c89dbd, type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 200
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2ed6f2f2385ae164b9a34b88f9c89dbd, type: 2}
@@ -8067,7 +8075,7 @@ MonoBehaviour:
   m_Script: {fileID: 1980459831, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 1
+  m_UiScaleMode: 0
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}

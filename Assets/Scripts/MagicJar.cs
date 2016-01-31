@@ -3,6 +3,7 @@ using System.Collections;
 
 public class MagicJar : MonoBehaviour {
     public Transform TeleportLocation;
+    public AudioSource audio;
 
     private GameObject objectToTele;
     private BallToPortal btp;
@@ -17,12 +18,14 @@ public class MagicJar : MonoBehaviour {
             btp = otherObject.AddComponent<BallToPortal>();
             btp.portal = transform;
             StartCoroutine(Teleport());
+            audio.Play();
         }
     }
 
    IEnumerator Teleport()
     {
         yield return new  WaitForSeconds(1.1f);
+        TeleportLocation.gameObject.GetComponent<AudioSource>().Play();
         objectToTele.transform.position = TeleportLocation.position;
         Destroy(btp);
         BallOutOfPortal botp = objectToTele.AddComponent<BallOutOfPortal>();

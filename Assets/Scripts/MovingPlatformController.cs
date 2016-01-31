@@ -27,6 +27,8 @@ public class MovingPlatformController : MonoBehaviour {
     public bool lookVertically;
     public bool lookHorizontally;
 
+    private GameObject lastObjectCollided;
+
     private Vector2 origin;
     private Vector3 originRotation;
     private List<Vector2> lookDirections;
@@ -40,6 +42,7 @@ public class MovingPlatformController : MonoBehaviour {
 
     void Start()
     {
+        Debug.Log("Starting");
         origin = transform.position;
         originRotation = transform.eulerAngles;
         lookDirections = new List<Vector2>();
@@ -50,7 +53,7 @@ public class MovingPlatformController : MonoBehaviour {
 
         if (reverseInitialLookDirection)
             lookDirections.Reverse();
-
+        
         if (useBoth)
         {
             StartTween( rotationAngles, "rotation" );
@@ -62,6 +65,7 @@ public class MovingPlatformController : MonoBehaviour {
 
    Vector2 GetWallPosition()
     {
+        Debug.Log("You know");
         lookDirections.Reverse();
         RaycastHit2D hit = new RaycastHit2D();
         for (int i = 0; i < lookDirections.Count; i++)
@@ -69,6 +73,7 @@ public class MovingPlatformController : MonoBehaviour {
             hit = Physics2D.Raycast(transform.position, lookDirections[i], rayDistance);
             if (hit.collider != null && (hit.collider.gameObject.tag == "Floor" || hit.collider.gameObject.tag == "Wall"))
             {
+                Debug.Log(hit.collider.gameObject.name);
                 Vector2 movePosition = hit.point;
                 return AdjustPosition(movePosition);
             }
@@ -105,6 +110,7 @@ public class MovingPlatformController : MonoBehaviour {
             args.Add("x", (rotate) ? rotationAngles.x : moveToOrRotatePosition.x );
             args.Add((rotate) ? "z" : "y", (rotate) ? rotationAngles.z : moveToOrRotatePosition.y);
             args.Add("easetype", easeType);
+            args.Add("delay", .5f);
             if((returnToOrigin && !rotate && (Vector2)transform.position == origin))
                 args.Add("oncomplete", "TweenCompleted");
 
@@ -162,11 +168,15 @@ public class MovingPlatformController : MonoBehaviour {
         GameObject otherObject = coll.gameObject;
         if ((otherObject.tag == "Floor" || otherObject.tag == "Wall"))
         {
-            Debug.Log("Stuff");
-            if (rotate)
-                 StartTween(rotationAngles, "rotation");
-            else
-               StartTween((returnToOrigin && (Vector2)transform.position != origin) ? origin : GetWallPosition(), "movement");
+            if (lastObjectCollided == null || lastObjectCollided != otherObject || rotate)
+            {
+                lastObjectCollided = otherObject;
+                Debug.Log("Stuff");
+                if (rotate)
+                    StartTween(rotationAngles, "rotation");
+                else
+                    StartTween((returnToOrigin && (Vector2)transform.position != origin) ? origin : GetWallPosition(), "movement");
+            }
         }
     }
 

@@ -5,8 +5,7 @@ using System.Collections.Generic;
 public class InputController : MonoBehaviour {
 	
 	public int currentTouch;
-	public bool canControl;
-	
+
 	BallController ballController;
 	
 	private enum Control {

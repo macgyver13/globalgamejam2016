@@ -7,8 +7,10 @@ public class GUIController : MonoBehaviour {
 
 	public ballModifier[] modifierList;
 	public float iconGapDistance;
-	public RectTransform containerRectTransform;
+	public float selectionIconBorderPadding;
+	public RectTransform infoRectTransform;
 	public Transform infoTransform;
+	public RectTransform selectionIconTransform;
 
 	public static GUIController instance = null;
 	public static GUIController GetInstance()
@@ -54,26 +56,56 @@ public class GUIController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		
-		RectTransform itemTransform = GameManager.instance.GetModifierCard(modifierList[0]).GetComponent<RectTransform> ();
-		float totalWidth = modifierList.Length * itemTransform.rect.width + (modifierList.Length -1 * iconGapDistance);
-		float startingXPostion = containerRectTransform.rect.center.x - totalWidth / 2;
-		float startingMaxYPostion = containerRectTransform.rect.yMax;
+		SetupIcons ();
+
+	}
+
+	public void SetupIcons(){
+		//Clean previous images if present
+		Component[] images = GetComponentsInChildren<Image>();
+		foreach (Image image in images) {
+			if (image.transform.name.Contains("icon")) {
+				Destroy (image.transform.gameObject);
+			}
+		}
 			
+		RectTransform itemTransform;
+		float startingXPostion = 0;
+		float startingMaxYPostion = 0;
+//		Debug.Log ("List Length:" + modifierList.Length);
+		if (modifierList.Length > 0) {
+			itemTransform = GameManager.instance.GetModifierCard (modifierList [0]).GetComponent<RectTransform> ();
+			float totalWidth = modifierList.Length * itemTransform.rect.width + (modifierList.Length - 1 * iconGapDistance);
+			startingXPostion = infoRectTransform.rect.center.x - itemTransform.rect.width - totalWidth / 2;
+			startingMaxYPostion = infoRectTransform.rect.yMax;
+
+			//locate the arrow
+			int position = 0;
+			selectionIconTransform.offsetMin = new Vector2 (startingXPostion + position * iconGapDistance + position * itemTransform.rect.width - selectionIconBorderPadding, startingMaxYPostion - itemTransform.rect.height - selectionIconBorderPadding);
+			selectionIconTransform.offsetMax = new Vector2 (startingXPostion + position * iconGapDistance + position * itemTransform.rect.width + itemTransform.rect.width + selectionIconBorderPadding, startingMaxYPostion + selectionIconBorderPadding);
+		}
 		for (int i = 0; i < modifierList.Length; i++) {
-//			Debug.Log ("X " + startingXPostion + " Y:" + startingMaxYPostion + " I:" + i);
+			//Debug.Log ("X " + startingXPostion + " Y:" + startingMaxYPostion + " I:" + i);
 			itemTransform = GameManager.instance.GetModifierCard(modifierList[i]).GetComponent<RectTransform> ();
 			GameObject newItem = Instantiate (GameManager.instance.GetModifierCard(modifierList[i])) as GameObject;
 			newItem.name = "icon " + modifierList[i];
 			newItem.transform.parent = infoTransform;
 			RectTransform rectTransform = newItem.GetComponent<RectTransform> ();
-//			Debug.Log ("left X " + startingXPostion + i * iconGapDistance + " right X:" + startingXPostion + i * iconGapDistance + itemTransform.rect.width + " I:" + i);
+			//			Debug.Log ("left X " + startingXPostion + i * iconGapDistance + " right X:" + startingXPostion + i * iconGapDistance + itemTransform.rect.width + " I:" + i);
 			rectTransform.offsetMin = new Vector2 (startingXPostion + i * iconGapDistance + i * itemTransform.rect.width, startingMaxYPostion - itemTransform.rect.height);
 			rectTransform.offsetMax = new Vector2 (startingXPostion + i * iconGapDistance + i * itemTransform.rect.width + itemTransform.rect.width, startingMaxYPostion);
 		}
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+
+	public void SetModifierPosition(int position){
+//		Debug.Log ("Action: List Length:" + modifierList.Length);
+		if (position < modifierList.Length) {
+			RectTransform itemTransform = GameManager.instance.GetModifierCard (modifierList [0]).GetComponent<RectTransform> ();
+			float totalWidth = modifierList.Length * itemTransform.rect.width + (modifierList.Length - 1 * iconGapDistance);
+			float startingXPostion = infoRectTransform.rect.center.x - itemTransform.rect.width - totalWidth / 2;
+			float startingMaxYPostion = infoRectTransform.rect.yMax;
+			selectionIconTransform.offsetMin = new Vector2 (startingXPostion + position * iconGapDistance + position * itemTransform.rect.width - selectionIconBorderPadding, startingMaxYPostion - itemTransform.rect.height - selectionIconBorderPadding);
+			selectionIconTransform.offsetMax = new Vector2 (startingXPostion + position * iconGapDistance + position * itemTransform.rect.width + itemTransform.rect.width + selectionIconBorderPadding, startingMaxYPostion + selectionIconBorderPadding);
+		}
 	}
 }

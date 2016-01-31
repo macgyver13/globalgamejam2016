@@ -2,7 +2,8 @@
 using System.Collections;
 
 public class Bouncer : MonoBehaviour {
-
+	public Animator bounceAnimator;
+	public bool bounced = false;
     public Transform trajectoryObjectNorth;
     public Transform trajectoryObjectSouth;
     public Transform trajectoryObjectEast;
@@ -10,6 +11,7 @@ public class Bouncer : MonoBehaviour {
 
     public float force;
     private Vector2 velocityToUse;
+
 
     void ApplyBounce(GameObject otherObject, Collision2D coll)
     {
@@ -26,7 +28,10 @@ public class Bouncer : MonoBehaviour {
         else
             trajectory = trajectoryObjectSouth;
 
+		bounceAnimator.SetTrigger("Hit");
+
         rgbd2D.AddForce((trajectory.position - transform.position) * force, ForceMode2D.Impulse);
+
     }
 
     void OnCollisionEnter2D(Collision2D coll)

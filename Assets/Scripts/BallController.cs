@@ -74,31 +74,31 @@ public class BallController : MonoBehaviour {
 	
 	void OnCollisionEnter2D(Collision2D coll)
 	{
-		if (coll.gameObject.tag == "Floor")
+        
+        if (coll.gameObject.tag == "Floor")
 		{
-			PerlinShake.instance.PlayShake (0.2f, 10.0f, 0.1f);
+            PerlinShake.instance.PlayShake (0.2f, 10.0f, 0.1f);
 			ContactPoint2D contact = coll.contacts[0];
 			Vector2 direction = (Vector2)transform.position - contact.point;
 			print(direction);
-			if (gravityVector.x > 0 && (direction.y != 0 || direction.x > 0))
+			if (gravityVector.x > 0 && ((direction.y > 0.2f || direction.y < -0.2f) || direction.x > 0))
 			{
-				return;
+                return;
 			}
-			else if (gravityVector.x < 0 && (direction.y != 0 || direction.x < 0))
+			else if (gravityVector.x < 0 && ((direction.y > 0.2f || direction.y < -0.2f) || direction.x < 0))
 			{
-				return;
+                return;
 			}
-			else if (gravityVector.y > 0 && (direction.x != 0 || direction.y > 0))
+			else if (gravityVector.y > 0 && ((direction.x > 0.2f || direction.x < -0.2f) || direction.y > 0))
 			{
-				return;
+                return;
 			}
-			else if (gravityVector.y < 0 && (direction.x != 0 || direction.y < 0))
+			else if (gravityVector.y < 0 && ((direction.x > 0.2f || direction.x < -0.2f) || direction.y < 0))
 			{
-				return;
+                return;
 			}
-			
-			
-			PlayBounceSound();
+
+            PlayBounceSound();
             isOnGround = true;
 
 
@@ -151,6 +151,7 @@ public class BallController : MonoBehaviour {
 
     public bool IsOnGround()
     {
+        Debug.Log("Ball stuff" + isOnGround);
         return isOnGround || jointConnectTo != null;
     }
 

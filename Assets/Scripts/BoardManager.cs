@@ -32,21 +32,20 @@ public class BoardManager : MonoBehaviour {
 	void ResetBoard(){
 //		totalTime = 0;
 		modifierPosition = 0;
-		GUIController.instance.modifierList = modifierList;
-		GUIController.instance.SetupIcons ();
+		//GUIController.instance.modifierList = modifierList;
+		//GUIController.instance.SetupIcons ();
 	}
 
 	// Update is called once per frame
 	void Update () {
-
-        if(Input.GetKeyDown(KeyCode.Space) && BallController.instance.IsOnGround())
+        if (Input.GetKeyDown(KeyCode.Space) && BallController.instance.IsOnGround())
         {
-			if (modifierPosition < modifierList.Length) {
+            if (modifierPosition < modifierList.Length) {
 				Debug.Log ("Set Modifier" + modifierList [modifierPosition]);
 				SetModifier ();
 
 				modifierPosition += 1;
-				GUIController.instance.SetModifierPosition (modifierPosition);
+				//GUIController.instance.SetModifierPosition (modifierPosition);
 			} else {
 				GameManager.instance.ResetLevel ();
 			}

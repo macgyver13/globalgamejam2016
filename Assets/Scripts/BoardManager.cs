@@ -71,16 +71,24 @@ public class BoardManager : MonoBehaviour {
                  BallController.instance.Jump();
                  break;
             case ballModifier.gravityNorth:
+                if (GameManager.instance != null)
+                    GameManager.instance.ChangeGravity();
                 BallController.instance.NorthGravity();                
                 break;
             case ballModifier.gravityEast:
-			    BallController.instance.EastGravity ();
+                if (GameManager.instance != null)
+                    GameManager.instance.ChangeGravity();
+                BallController.instance.EastGravity ();
                 break;
 		    case ballModifier.gravityWest:
-			    BallController.instance.WestGravity ();
+                if (GameManager.instance != null)
+                    GameManager.instance.ChangeGravity();
+                BallController.instance.WestGravity ();
                 break;
 		    case ballModifier.gravitySouth:
-			    BallController.instance.SouthGravity ();
+                if (GameManager.instance != null)
+                    GameManager.instance.ChangeGravity();
+                BallController.instance.SouthGravity ();
                 break;
 		    case ballModifier.bounceNone:
 			    BallController.instance.NoJump ();

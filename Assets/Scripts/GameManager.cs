@@ -6,7 +6,6 @@ using System.Collections;
 public class GameManager : MonoBehaviour {
 
 	public static GameManager instance = null;
-	public GameObject[] modifierPrefabList;
 
     public Image FadeImg;
 
@@ -22,6 +21,8 @@ public class GameManager : MonoBehaviour {
 
     bool fadeToBlack = false;
     bool fadeToClear = false;
+
+    AudioSource audioSource;
 
     //Awake is always called before any Start functions
     void Awake()
@@ -45,6 +46,17 @@ public class GameManager : MonoBehaviour {
         //boardScript = GetComponent<BoardManager>();
 
         //Call the InitGame function to initialize the first level 
+        LoadLevel();
+    }
+
+    void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
+
+    IEnumerator startLoadLevel()
+    {
+        yield return null;
         LoadLevel();
     }
 
@@ -133,9 +145,8 @@ public class GameManager : MonoBehaviour {
         fadeToClear = true;
     }
 
-	public GameObject GetModifierCard(ballModifier ballMod){
-//		Debug.Log ("GetMod Card: " + ballMod + " mod List:" + modifierPrefabList.Length);
-		return modifierPrefabList[(int)ballMod];
-	}
-
+    public void ChangeGravity()
+    {
+        audioSource.pitch = Random.Range(.9f, 1.1f);
+    }
 }

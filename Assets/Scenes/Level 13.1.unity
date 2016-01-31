@@ -630,6 +630,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 228106832}
   - 212: {fileID: 228106831}
+  - 114: {fileID: 228106833}
   m_Layer: 0
   m_Name: space
   m_TagString: Untagged
@@ -679,6 +680,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 16
+--- !u!114 &228106833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 228106830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c083291bb96b449b8cb29df07f5dafd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _transform: {fileID: 228106832}
+  ballTransform: {fileID: 1723997022}
+  previousBallPosition: {x: 0, y: 0, z: 0}
+  scale: 0
+  buffer: 0
+  maxDiff: 0
+  smoothTime: 0.1
+  velocity: {x: 0, y: 0}
 --- !u!1 &241158896
 GameObject:
   m_ObjectHideFlags: 0
@@ -4578,6 +4598,10 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a3115a26fd53fb04b8691144854bace9, type: 2}
   m_IsPrefabParent: 0
+--- !u!4 &1723997022 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 441456, guid: a3115a26fd53fb04b8691144854bace9, type: 2}
+  m_PrefabInternal: {fileID: 1723997021}
 --- !u!1 &1789743214
 GameObject:
   m_ObjectHideFlags: 0

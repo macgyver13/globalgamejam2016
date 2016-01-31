@@ -1,0 +1,194 @@
+fileFormatVersion: 2
+guid: 2d9d9f49e3436cb408fb90ad342baa3e
+timeCreated: 1454211792
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: icons_0
+    21300002: icons_1
+    21300004: icons_2
+    21300006: icons_4
+    21300008: icons_5
+    21300010: icons_6
+    21300012: icons_8
+    21300014: icons_9
+    21300016: icons_10
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: icons_0
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 238
+        width: 34
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: icons_1
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 237
+        width: 34
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: icons_2
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 221
+        width: 11
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: icons_4
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 219
+        width: 11
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: icons_5
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 218
+        width: 14
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: icons_6
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 230
+        width: 31
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: icons_8
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 148
+        width: 56
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -25, y: 29}
+        - {x: -28, y: 20}
+        - {x: -28, y: -20}
+        - {x: -18, y: -26}
+        - {x: -9, y: -29}
+        - {x: 17, y: -29}
+        - {x: 28, y: -21}
+        - {x: 28, y: 20}
+        - {x: 25, y: 29}
+    - name: icons_9
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 156
+        width: 44
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20, y: 23}
+        - {x: -22, y: 17}
+        - {x: -22, y: -19}
+        - {x: -18, y: -23}
+        - {x: 19, y: -23}
+        - {x: 22, y: -15}
+        - {x: 22, y: 15}
+        - {x: 11, y: 23}
+    - name: icons_10
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 19
+        width: 88
+        height: 90
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -44, y: 45}
+        - {x: -44, y: -45}
+        - {x: 43, y: -45}
+        - {x: 43, y: 45}
+      - - {x: 38, y: 37}
+        - {x: 35, y: 35}
+        - {x: 34, y: 31}
+        - {x: 38, y: 26}
+        - {x: 43, y: 26}
+        - {x: 44, y: 27}
+        - {x: 44, y: 36}
+        - {x: 43, y: 37}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

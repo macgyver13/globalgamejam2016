@@ -292,6 +292,23 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11454692, guid: b9da8a59e9174154eaeab7e8e7e94078, type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300012, guid: 2d9d9f49e3436cb408fb90ad342baa3e,
+        type: 3}
+    - target: {fileID: 22491962, guid: b9da8a59e9174154eaeab7e8e7e94078, type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 56
+      objectReference: {fileID: 0}
+    - target: {fileID: 22491962, guid: b9da8a59e9174154eaeab7e8e7e94078, type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 58
+      objectReference: {fileID: 0}
+    - target: {fileID: 11492602, guid: b9da8a59e9174154eaeab7e8e7e94078, type: 2}
+      propertyPath: iconGapDistance
+      value: 40
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b9da8a59e9174154eaeab7e8e7e94078, type: 2}
   m_IsPrefabParent: 0
@@ -419,6 +436,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   modifierPrefabList:
+  - {fileID: 139174, guid: 50a787bc5a321384c9480fc6b23d5adf, type: 2}
   - {fileID: 144362, guid: bdb364c19917e4d7aab9c51408914b76, type: 2}
   - {fileID: 144362, guid: bdb364c19917e4d7aab9c51408914b76, type: 2}
   - {fileID: 144362, guid: bdb364c19917e4d7aab9c51408914b76, type: 2}
@@ -428,11 +446,10 @@ MonoBehaviour:
   - {fileID: 144362, guid: bdb364c19917e4d7aab9c51408914b76, type: 2}
   - {fileID: 144362, guid: bdb364c19917e4d7aab9c51408914b76, type: 2}
   - {fileID: 144362, guid: bdb364c19917e4d7aab9c51408914b76, type: 2}
+  - {fileID: 111846, guid: 238b9e07ce93862438a02453239bed16, type: 2}
+  - {fileID: 195118, guid: ca7d56f429701154e9a270f0c24cc9fb, type: 2}
   - {fileID: 144362, guid: bdb364c19917e4d7aab9c51408914b76, type: 2}
-  - {fileID: 144362, guid: bdb364c19917e4d7aab9c51408914b76, type: 2}
-  - {fileID: 144362, guid: bdb364c19917e4d7aab9c51408914b76, type: 2}
-  - {fileID: 144362, guid: bdb364c19917e4d7aab9c51408914b76, type: 2}
-  - {fileID: 144362, guid: bdb364c19917e4d7aab9c51408914b76, type: 2}
+  - {fileID: 129796, guid: 8f07fde6584b5d24fbeec20fe1666daa, type: 2}
   - {fileID: 111878, guid: def8a740c133b4a65add96a40f59d690, type: 2}
   FadeImg: {fileID: 382810265}
   level:

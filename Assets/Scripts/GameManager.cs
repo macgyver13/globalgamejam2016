@@ -6,7 +6,6 @@ using System.Collections;
 public class GameManager : MonoBehaviour {
 
 	public static GameManager instance = null;
-	public GameObject[] modifierPrefabList;
 
     public Image FadeImg;
 
@@ -45,6 +44,12 @@ public class GameManager : MonoBehaviour {
         //boardScript = GetComponent<BoardManager>();
 
         //Call the InitGame function to initialize the first level 
+        LoadLevel();
+    }
+
+    IEnumerator startLoadLevel()
+    {
+        yield return null;
         LoadLevel();
     }
 
@@ -132,10 +137,4 @@ public class GameManager : MonoBehaviour {
         LoadLevel();
         fadeToClear = true;
     }
-
-	public GameObject GetModifierCard(ballModifier ballMod){
-//		Debug.Log ("GetMod Card: " + ballMod + " mod List:" + modifierPrefabList.Length);
-		return modifierPrefabList[(int)ballMod];
-	}
-
 }

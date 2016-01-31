@@ -100,6 +100,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 004721adf37674a429801a110370b2f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  modifierPrefabList:
+  - {fileID: 139174, guid: 50a787bc5a321384c9480fc6b23d5adf, type: 2}
+  - {fileID: 139174, guid: 50a787bc5a321384c9480fc6b23d5adf, type: 2}
+  - {fileID: 139174, guid: 50a787bc5a321384c9480fc6b23d5adf, type: 2}
+  - {fileID: 139174, guid: 50a787bc5a321384c9480fc6b23d5adf, type: 2}
+  - {fileID: 139174, guid: 50a787bc5a321384c9480fc6b23d5adf, type: 2}
+  - {fileID: 139174, guid: 50a787bc5a321384c9480fc6b23d5adf, type: 2}
+  - {fileID: 139174, guid: 50a787bc5a321384c9480fc6b23d5adf, type: 2}
+  - {fileID: 139174, guid: 50a787bc5a321384c9480fc6b23d5adf, type: 2}
+  - {fileID: 139174, guid: 50a787bc5a321384c9480fc6b23d5adf, type: 2}
+  - {fileID: 139174, guid: 50a787bc5a321384c9480fc6b23d5adf, type: 2}
+  - {fileID: 111846, guid: 238b9e07ce93862438a02453239bed16, type: 2}
+  - {fileID: 195118, guid: ca7d56f429701154e9a270f0c24cc9fb, type: 2}
+  - {fileID: 144362, guid: bdb364c19917e4d7aab9c51408914b76, type: 2}
+  - {fileID: 129796, guid: 8f07fde6584b5d24fbeec20fe1666daa, type: 2}
+  - {fileID: 111878, guid: def8a740c133b4a65add96a40f59d690, type: 2}
   modifierList: 
   iconGapDistance: 40
   selectionIconBorderPadding: 20

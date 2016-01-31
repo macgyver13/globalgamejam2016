@@ -220,6 +220,10 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 1679663196}
     m_Modifications:
+    - target: {fileID: 11492602, guid: b9da8a59e9174154eaeab7e8e7e94078, type: 2}
+      propertyPath: modifierPrefabList.Array.size
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 22477080, guid: b9da8a59e9174154eaeab7e8e7e94078, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -325,6 +329,66 @@ Prefab:
       propertyPath: m_SizeDelta.y
       value: 112
       objectReference: {fileID: 0}
+    - target: {fileID: 11492602, guid: b9da8a59e9174154eaeab7e8e7e94078, type: 2}
+      propertyPath: modifierPrefabList.Array.data[0]
+      value: 
+      objectReference: {fileID: 139174, guid: 50a787bc5a321384c9480fc6b23d5adf, type: 2}
+    - target: {fileID: 11492602, guid: b9da8a59e9174154eaeab7e8e7e94078, type: 2}
+      propertyPath: modifierPrefabList.Array.data[1]
+      value: 
+      objectReference: {fileID: 139174, guid: 50a787bc5a321384c9480fc6b23d5adf, type: 2}
+    - target: {fileID: 11492602, guid: b9da8a59e9174154eaeab7e8e7e94078, type: 2}
+      propertyPath: modifierPrefabList.Array.data[2]
+      value: 
+      objectReference: {fileID: 139174, guid: 50a787bc5a321384c9480fc6b23d5adf, type: 2}
+    - target: {fileID: 11492602, guid: b9da8a59e9174154eaeab7e8e7e94078, type: 2}
+      propertyPath: modifierPrefabList.Array.data[3]
+      value: 
+      objectReference: {fileID: 139174, guid: 50a787bc5a321384c9480fc6b23d5adf, type: 2}
+    - target: {fileID: 11492602, guid: b9da8a59e9174154eaeab7e8e7e94078, type: 2}
+      propertyPath: modifierPrefabList.Array.data[4]
+      value: 
+      objectReference: {fileID: 139174, guid: 50a787bc5a321384c9480fc6b23d5adf, type: 2}
+    - target: {fileID: 11492602, guid: b9da8a59e9174154eaeab7e8e7e94078, type: 2}
+      propertyPath: modifierPrefabList.Array.data[5]
+      value: 
+      objectReference: {fileID: 139174, guid: 50a787bc5a321384c9480fc6b23d5adf, type: 2}
+    - target: {fileID: 11492602, guid: b9da8a59e9174154eaeab7e8e7e94078, type: 2}
+      propertyPath: modifierPrefabList.Array.data[6]
+      value: 
+      objectReference: {fileID: 139174, guid: 50a787bc5a321384c9480fc6b23d5adf, type: 2}
+    - target: {fileID: 11492602, guid: b9da8a59e9174154eaeab7e8e7e94078, type: 2}
+      propertyPath: modifierPrefabList.Array.data[7]
+      value: 
+      objectReference: {fileID: 139174, guid: 50a787bc5a321384c9480fc6b23d5adf, type: 2}
+    - target: {fileID: 11492602, guid: b9da8a59e9174154eaeab7e8e7e94078, type: 2}
+      propertyPath: modifierPrefabList.Array.data[8]
+      value: 
+      objectReference: {fileID: 139174, guid: 50a787bc5a321384c9480fc6b23d5adf, type: 2}
+    - target: {fileID: 11492602, guid: b9da8a59e9174154eaeab7e8e7e94078, type: 2}
+      propertyPath: modifierPrefabList.Array.data[9]
+      value: 
+      objectReference: {fileID: 139174, guid: 50a787bc5a321384c9480fc6b23d5adf, type: 2}
+    - target: {fileID: 11492602, guid: b9da8a59e9174154eaeab7e8e7e94078, type: 2}
+      propertyPath: modifierPrefabList.Array.data[10]
+      value: 
+      objectReference: {fileID: 111846, guid: 238b9e07ce93862438a02453239bed16, type: 2}
+    - target: {fileID: 11492602, guid: b9da8a59e9174154eaeab7e8e7e94078, type: 2}
+      propertyPath: modifierPrefabList.Array.data[11]
+      value: 
+      objectReference: {fileID: 195118, guid: ca7d56f429701154e9a270f0c24cc9fb, type: 2}
+    - target: {fileID: 11492602, guid: b9da8a59e9174154eaeab7e8e7e94078, type: 2}
+      propertyPath: modifierPrefabList.Array.data[12]
+      value: 
+      objectReference: {fileID: 144362, guid: bdb364c19917e4d7aab9c51408914b76, type: 2}
+    - target: {fileID: 11492602, guid: b9da8a59e9174154eaeab7e8e7e94078, type: 2}
+      propertyPath: modifierPrefabList.Array.data[13]
+      value: 
+      objectReference: {fileID: 129796, guid: 8f07fde6584b5d24fbeec20fe1666daa, type: 2}
+    - target: {fileID: 11492602, guid: b9da8a59e9174154eaeab7e8e7e94078, type: 2}
+      propertyPath: modifierPrefabList.Array.data[14]
+      value: 
+      objectReference: {fileID: 111878, guid: def8a740c133b4a65add96a40f59d690, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b9da8a59e9174154eaeab7e8e7e94078, type: 2}
   m_IsPrefabParent: 0
@@ -422,7 +486,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 100
   m_TargetDisplay: 0
 --- !u!1 &1679663194
 GameObject:
@@ -451,22 +515,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66c883581eac94ce4865513405ecacb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  modifierPrefabList:
-  - {fileID: 139174, guid: 50a787bc5a321384c9480fc6b23d5adf, type: 2}
-  - {fileID: 144362, guid: bdb364c19917e4d7aab9c51408914b76, type: 2}
-  - {fileID: 144362, guid: bdb364c19917e4d7aab9c51408914b76, type: 2}
-  - {fileID: 144362, guid: bdb364c19917e4d7aab9c51408914b76, type: 2}
-  - {fileID: 144362, guid: bdb364c19917e4d7aab9c51408914b76, type: 2}
-  - {fileID: 144362, guid: bdb364c19917e4d7aab9c51408914b76, type: 2}
-  - {fileID: 144362, guid: bdb364c19917e4d7aab9c51408914b76, type: 2}
-  - {fileID: 144362, guid: bdb364c19917e4d7aab9c51408914b76, type: 2}
-  - {fileID: 144362, guid: bdb364c19917e4d7aab9c51408914b76, type: 2}
-  - {fileID: 144362, guid: bdb364c19917e4d7aab9c51408914b76, type: 2}
-  - {fileID: 111846, guid: 238b9e07ce93862438a02453239bed16, type: 2}
-  - {fileID: 195118, guid: ca7d56f429701154e9a270f0c24cc9fb, type: 2}
-  - {fileID: 144362, guid: bdb364c19917e4d7aab9c51408914b76, type: 2}
-  - {fileID: 129796, guid: 8f07fde6584b5d24fbeec20fe1666daa, type: 2}
-  - {fileID: 111878, guid: def8a740c133b4a65add96a40f59d690, type: 2}
   FadeImg: {fileID: 382810265}
   level:
   - LevelUno

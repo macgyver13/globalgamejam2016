@@ -2,7 +2,8 @@
 using System.Collections;
 
 public class LevelZeroController : MonoBehaviour {
-
+	public GameObject fallingCamera;
+	public GameObject gameCamera;
 	public Animation mainCamera;
 	public CameraController cameraController;
 	public ParallaxController parallaxController;
@@ -12,7 +13,8 @@ public class LevelZeroController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+		BallController.instance.CanControl (false);
+		BallController.instance.isOnGround = false;
 	}
 	
 	// Update is called once per frame
@@ -21,14 +23,18 @@ public class LevelZeroController : MonoBehaviour {
 			if (!cameraController.moving) {
 				cameraController.enabled = false;	
 				mainCamera.Play ();
-				parallaxController.enabled = true;
 				cameraIntro = true;
 				waiting = false;
 			}
 		}
 		if (cameraIntro) {
 			if (!mainCamera.isPlaying) {
+				print ("camerIntro finished");
 				cameraIntro = false;
+				BallController.instance.CanControl (true);
+				parallaxController.enabled = true;
+				fallingCamera.SetActive(false);
+				gameCamera.SetActive (true);
 			}
 		}
 	}

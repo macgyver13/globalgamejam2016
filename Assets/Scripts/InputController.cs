@@ -5,6 +5,7 @@ using System.Collections.Generic;
 public class InputController : MonoBehaviour {
 	
 	public int currentTouch;
+	public bool canControl;
 	
 	BallController ballController;
 	
@@ -23,7 +24,7 @@ public class InputController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		#if (UNITY_IOS || UNITY_ANDROID) && !UNITY_EDITOR
+#if (UNITY_IOS || UNITY_ANDROID) && !UNITY_EDITOR
 		foreach (Touch touch in Input.touches) {
 			if (touch.phase != TouchPhase.Ended && touch.phase != TouchPhase.Canceled) {
 				if(currentControl == Control.None) {
@@ -37,16 +38,17 @@ public class InputController : MonoBehaviour {
 				}
 			}
 		}
-		#else
+#else
 		if (Input.GetKey (KeyCode.RightArrow) || Input.GetKey (KeyCode.D)) {
 			Right ();
 		} else if (Input.GetKey (KeyCode.LeftArrow) || Input.GetKey (KeyCode.A)) {
 			Left ();		
 		} else {
 			currentControl = Control.None;
-            ballController.Stop();
+			ballController.Stop ();
 		}
-		#endif
+#endif
+
 	}
 	
 	void CalculateTouch(Touch touch) {

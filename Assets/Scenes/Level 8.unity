@@ -821,6 +821,10 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a3115a26fd53fb04b8691144854bace9, type: 2}
   m_IsPrefabParent: 0
+--- !u!4 &638883122 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 441456, guid: a3115a26fd53fb04b8691144854bace9, type: 2}
+  m_PrefabInternal: {fileID: 638883121}
 --- !u!1001 &673386762
 Prefab:
   m_ObjectHideFlags: 0
@@ -1243,7 +1247,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _transform: {fileID: 1365402695}
-  ballTransform: {fileID: 0}
+  ballTransform: {fileID: 638883122}
   previousBallPosition: {x: 0, y: 0, z: 0}
   scale: 4
   buffer: 0.1

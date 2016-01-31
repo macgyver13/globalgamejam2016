@@ -5,8 +5,10 @@ public class LevelZeroController : MonoBehaviour {
 
 	public Animation mainCamera;
 	public CameraController cameraController;
+	public ParallaxController parallaxController;
 	private bool cameraIntro = false;
 	private bool waiting = false;
+	private bool called = false;
 
 	// Use this for initialization
 	void Start () {
@@ -19,6 +21,7 @@ public class LevelZeroController : MonoBehaviour {
 			if (!cameraController.moving) {
 				cameraController.enabled = false;	
 				mainCamera.Play ();
+				parallaxController.enabled = true;
 				cameraIntro = true;
 				waiting = false;
 			}
@@ -31,7 +34,9 @@ public class LevelZeroController : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D (Collider2D collider) {
-		print ("TRIGGER ENTER");
-		waiting = true;
+		if (!called) {
+			waiting = true;
+			called = true;
+		}
 	}
 }

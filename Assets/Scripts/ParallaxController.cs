@@ -25,7 +25,7 @@ public class ParallaxController : MonoBehaviour {
 			(ballTransform.position.x > topX) || (ballTransform.position.x < bottomX))  {
 
 			Vector3 newPosition = CalculateBackgroundPosition ();
-//			print (newPosition);
+			print (newPosition);
 
 			transform.position = new Vector3 (Mathf.SmoothDamp (_transform.position.x, newPosition.x, ref velocity.x, smoothTime), Mathf.SmoothDamp (_transform.position.y, newPosition.y, ref velocity.y, smoothTime), _transform.position.z);
 		}

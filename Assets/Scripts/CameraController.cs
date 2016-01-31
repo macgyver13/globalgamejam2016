@@ -48,7 +48,7 @@ public class CameraController : MonoBehaviour {
 	}
 
 	float TopThreshHold () {
-		float fourth = Screen.height * 0.25f;
+		float fourth = Screen.height * 0.45f;
 		float thresh = Screen.height - fourth;
 		Vector3 screenPos = new Vector3 (0, thresh, 0);
 		Vector3 worldThresh = mainCamera.ScreenToWorldPoint (screenPos);
@@ -57,7 +57,7 @@ public class CameraController : MonoBehaviour {
 	}
 
 	float BottomThreshHold () {
-		float fourth = Screen.height * 0.25f;
+		float fourth = Screen.height * 0.45f;
 		Vector3 screenPos = new Vector3 (0, fourth, 0);
 		Vector3 worldThresh = mainCamera.ScreenToWorldPoint (screenPos);
 

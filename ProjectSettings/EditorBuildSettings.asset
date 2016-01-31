@@ -8,7 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/startingScene.unity
   - enabled: 1
-    path: Assets/Scenes/LevelUno.unity
+    path: Assets/Scenes/Level 1.unity
   - enabled: 1
     path: Assets/Scenes/Level 2.unity
   - enabled: 1
@@ -23,3 +23,5 @@ EditorBuildSettings:
     path: Assets/Scenes/Level 7.unity
   - enabled: 1
     path: Assets/Scenes/level13.unity
+  - enabled: 1
+    path: Assets/Scenes/Level 0.unity

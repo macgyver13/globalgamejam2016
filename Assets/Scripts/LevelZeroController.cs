@@ -12,7 +12,7 @@ public class LevelZeroController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+		BallController.instance.CanControl (false);
 	}
 	
 	// Update is called once per frame
@@ -28,7 +28,9 @@ public class LevelZeroController : MonoBehaviour {
 		}
 		if (cameraIntro) {
 			if (!mainCamera.isPlaying) {
+				print ("camerIntro finished");
 				cameraIntro = false;
+				BallController.instance.CanControl (true);
 			}
 		}
 	}

@@ -28,7 +28,7 @@ public class BallController : MonoBehaviour {
 	float maxVelocity;
 	float movementForce;
 	public Vector2 gravityVector;
-	
+	public bool canControl = true;
 	int count = 0;
 	float force;
     bool isOnGround = true;
@@ -186,9 +186,16 @@ public class BallController : MonoBehaviour {
             rigidbody.AddForce(Vector2.up * force);
         }
     }
+
+	public void CanControl (bool _canControl) {
+		canControl = _canControl;
+	}
 	
 	public void Right()
 	{
+		if (!canControl) {
+			return;
+		}
 		if (gravityVector.x > 0)
 		{
 			rigidbody.AddForce(new Vector2(0, 1) * movementForce);
@@ -208,6 +215,9 @@ public class BallController : MonoBehaviour {
 	}
 	public void Left()
 	{
+		if (!canControl) {
+			return;
+		}
 		if (gravityVector.x > 0)
 		{
 			rigidbody.AddForce(new Vector2(0, -1) * movementForce);

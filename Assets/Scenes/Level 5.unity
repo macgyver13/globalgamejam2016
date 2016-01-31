@@ -1045,6 +1045,30 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 11451054, guid: 2ed6f2f2385ae164b9a34b88f9c89dbd, type: 2}
+      propertyPath: selectionIconBorderPadding
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11451054, guid: 2ed6f2f2385ae164b9a34b88f9c89dbd, type: 2}
+      propertyPath: iconGapDistance
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 22457824, guid: 2ed6f2f2385ae164b9a34b88f9c89dbd, type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 22457824, guid: 2ed6f2f2385ae164b9a34b88f9c89dbd, type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 22431514, guid: 2ed6f2f2385ae164b9a34b88f9c89dbd, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 22431514, guid: 2ed6f2f2385ae164b9a34b88f9c89dbd, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2ed6f2f2385ae164b9a34b88f9c89dbd, type: 2}
   m_IsPrefabParent: 0
@@ -1180,7 +1204,7 @@ Transform:
   m_Children:
   - {fileID: 1829497605}
   m_Father: {fileID: 0}
-  m_RootOrder: 20
+  m_RootOrder: 21
 --- !u!1001 &767330574
 Prefab:
   m_ObjectHideFlags: 0

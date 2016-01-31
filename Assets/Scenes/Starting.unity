@@ -323,11 +323,11 @@ Prefab:
         type: 3}
     - target: {fileID: 22491962, guid: b9da8a59e9174154eaeab7e8e7e94078, type: 2}
       propertyPath: m_SizeDelta.x
-      value: 112
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 22491962, guid: b9da8a59e9174154eaeab7e8e7e94078, type: 2}
       propertyPath: m_SizeDelta.y
-      value: 112
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 11492602, guid: b9da8a59e9174154eaeab7e8e7e94078, type: 2}
       propertyPath: modifierPrefabList.Array.data[0]
@@ -391,7 +391,7 @@ Prefab:
       objectReference: {fileID: 111878, guid: def8a740c133b4a65add96a40f59d690, type: 2}
     - target: {fileID: 11467190, guid: b9da8a59e9174154eaeab7e8e7e94078, type: 2}
       propertyPath: m_UiScaleMode
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22433700, guid: b9da8a59e9174154eaeab7e8e7e94078, type: 2}
       propertyPath: m_LocalScale.x
@@ -403,15 +403,39 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11492602, guid: b9da8a59e9174154eaeab7e8e7e94078, type: 2}
       propertyPath: iconGapDistance
-      value: 70
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 11492602, guid: b9da8a59e9174154eaeab7e8e7e94078, type: 2}
       propertyPath: selectionIconBorderPadding
-      value: 40
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 22433700, guid: b9da8a59e9174154eaeab7e8e7e94078, type: 2}
       propertyPath: m_AnchoredPosition.x
       value: -50
+      objectReference: {fileID: 0}
+    - target: {fileID: 22314816, guid: b9da8a59e9174154eaeab7e8e7e94078, type: 2}
+      propertyPath: m_RenderMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 22314816, guid: b9da8a59e9174154eaeab7e8e7e94078, type: 2}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1728987116}
+    - target: {fileID: 22470034, guid: b9da8a59e9174154eaeab7e8e7e94078, type: 2}
+      propertyPath: m_AnchorMin.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 22470034, guid: b9da8a59e9174154eaeab7e8e7e94078, type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 22470034, guid: b9da8a59e9174154eaeab7e8e7e94078, type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: -15
+      objectReference: {fileID: 0}
+    - target: {fileID: 22470034, guid: b9da8a59e9174154eaeab7e8e7e94078, type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b9da8a59e9174154eaeab7e8e7e94078, type: 2}

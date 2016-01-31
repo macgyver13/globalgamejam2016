@@ -491,7 +491,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 459290, guid: 8aefe9deb8631124689be8219beebad0, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -33
+      value: -32.51
       objectReference: {fileID: 0}
     - target: {fileID: 459290, guid: 8aefe9deb8631124689be8219beebad0, type: 2}
       propertyPath: m_LocalPosition.y
@@ -519,7 +519,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 459290, guid: 8aefe9deb8631124689be8219beebad0, type: 2}
       propertyPath: m_RootOrder
-      value: 8
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 124524, guid: 8aefe9deb8631124689be8219beebad0, type: 2}
       propertyPath: m_Name
@@ -528,6 +528,22 @@ Prefab:
     - target: {fileID: 21242490, guid: 8aefe9deb8631124689be8219beebad0, type: 2}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6176670, guid: 8aefe9deb8631124689be8219beebad0, type: 2}
+      propertyPath: m_Offset.x
+      value: 0.0000027094538
+      objectReference: {fileID: 0}
+    - target: {fileID: 6176670, guid: 8aefe9deb8631124689be8219beebad0, type: 2}
+      propertyPath: m_Offset.y
+      value: -22.864141
+      objectReference: {fileID: 0}
+    - target: {fileID: 6176670, guid: 8aefe9deb8631124689be8219beebad0, type: 2}
+      propertyPath: m_Size.x
+      value: 1.2800001
+      objectReference: {fileID: 0}
+    - target: {fileID: 6176670, guid: 8aefe9deb8631124689be8219beebad0, type: 2}
+      propertyPath: m_Size.y
+      value: 47.007732
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8aefe9deb8631124689be8219beebad0, type: 2}
@@ -1593,7 +1609,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1012032854}
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071067}
-  m_LocalPosition: {x: -35.02, y: 13.74, z: 0}
+  m_LocalPosition: {x: -34.6, y: 13.7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

@@ -3,7 +3,11 @@ using System.Collections;
 
 public class Bouncer : MonoBehaviour {
 
-    public Transform trajectoryObject;
+    public Transform trajectoryObjectNorth;
+    public Transform trajectoryObjectSouth;
+    public Transform trajectoryObjectEast;
+    public Transform trajectoryObjectWest;
+
     public float force;
     private Vector2 velocityToUse;
 
@@ -11,10 +15,18 @@ public class Bouncer : MonoBehaviour {
     {
         Rigidbody2D rgbd2D = otherObject.GetComponent<Rigidbody2D>();
 
+        rgbd2D.velocity = Vector2.zero;
+        Transform trajectory;
+        if (BallController.instance.gravityVector.x > 0 && trajectoryObjectEast != null)
+            trajectory = trajectoryObjectEast;
+        else if (BallController.instance.gravityVector.x < 0 && trajectoryObjectWest != null)
+            trajectory = trajectoryObjectWest;
+        else if (BallController.instance.gravityVector.y > 0 && trajectoryObjectNorth != null)
+            trajectory = trajectoryObjectNorth;
+        else
+            trajectory = trajectoryObjectSouth;
 
-            rgbd2D.velocity = Vector2.zero;
-            rgbd2D.AddForce((trajectoryObject.position - transform.position) * force, ForceMode2D.Impulse);
-       
+        rgbd2D.AddForce((trajectory.position - transform.position) * force, ForceMode2D.Impulse);
     }
 
     void OnCollisionEnter2D(Collision2D coll)

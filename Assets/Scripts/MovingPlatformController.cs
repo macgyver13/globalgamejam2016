@@ -57,11 +57,12 @@ public class MovingPlatformController : MonoBehaviour {
             StartTween((Vector3)GetWallPosition(), "movement");
         }
         else
-            StartTween((rotate) ? rotationAngles : (Vector3)GetWallPosition(), "rotation");
+            StartTween((rotate) ? rotationAngles : (Vector3)GetWallPosition(), (rotate) ? "rotation" : "movement");
     }
 
    Vector2 GetWallPosition()
     {
+        lookDirections.Reverse();
         RaycastHit2D hit = new RaycastHit2D();
         for (int i = 0; i < lookDirections.Count; i++)
         {
@@ -94,7 +95,6 @@ public class MovingPlatformController : MonoBehaviour {
 
     void StartTween(Vector3 moveToOrRotatePosition, string tweenType)
     {
-        lookDirections.Reverse();
         Debug.Log(moveToOrRotatePosition);
         if (moveToOrRotatePosition != Vector3.zero)
         {
@@ -162,6 +162,7 @@ public class MovingPlatformController : MonoBehaviour {
         GameObject otherObject = coll.gameObject;
         if ((otherObject.tag == "Floor" || otherObject.tag == "Wall"))
         {
+            Debug.Log("Stuff");
             if (rotate)
                  StartTween(rotationAngles, "rotation");
             else

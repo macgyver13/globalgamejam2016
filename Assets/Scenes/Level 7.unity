@@ -1333,7 +1333,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _transform: {fileID: 587671106}
-  ballTransform: {fileID: 0}
+  ballTransform: {fileID: 1919677296}
   previousBallPosition: {x: 0, y: 0, z: 0}
   scale: 4
   buffer: 0.1
@@ -2402,7 +2402,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 907900606}
   m_LocalRotation: {x: 0, y: 0, z: 0.15668216, w: -0.9876491}
-  m_LocalPosition: {x: -9.74, y: -0.02, z: 0}
+  m_LocalPosition: {x: -9.78, y: 0.29, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1865278719}
@@ -3063,7 +3063,8 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Points:
     m_Paths:
-    - - {x: 0.08393415, y: 1.0237029}
+    - - {x: 0.5312826, y: 0.54520226}
+      - {x: 0.40857092, y: 0.7739394}
       - {x: -0.29383978, y: 1.1413307}
       - {x: -0.5485756, y: 0.73725694}
       - {x: -0.7713553, y: -0.21345417}
@@ -7248,6 +7249,10 @@ Transform:
   - {fileID: 1995065194}
   m_Father: {fileID: 0}
   m_RootOrder: 8
+--- !u!4 &1919677296 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 441456, guid: a3115a26fd53fb04b8691144854bace9, type: 2}
+  m_PrefabInternal: {fileID: 1481204496}
 --- !u!1 &1968193574
 GameObject:
   m_ObjectHideFlags: 0

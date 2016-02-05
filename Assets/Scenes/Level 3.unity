@@ -892,7 +892,7 @@ Transform:
   m_LocalScale: {x: 0.53177285, y: 0.5317729, z: 0.531773}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 107
+  m_RootOrder: 106
 --- !u!1 &135322629
 GameObject:
   m_ObjectHideFlags: 0
@@ -4439,11 +4439,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 2075500, guid: b01272978e1cb5d4281b476b416e6b7f, type: 2}
       propertyPath: m_BackGroundColor.r
-      value: 1
+      value: 0.1254902
       objectReference: {fileID: 0}
     - target: {fileID: 136112, guid: b01272978e1cb5d4281b476b416e6b7f, type: 2}
       propertyPath: m_Name
       value: CameraObject (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2075500, guid: b01272978e1cb5d4281b476b416e6b7f, type: 2}
+      propertyPath: m_BackGroundColor.g
+      value: 0.1137255
+      objectReference: {fileID: 0}
+    - target: {fileID: 2075500, guid: b01272978e1cb5d4281b476b416e6b7f, type: 2}
+      propertyPath: m_BackGroundColor.b
+      value: 0.20784315
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b01272978e1cb5d4281b476b416e6b7f, type: 2}

@@ -12,6 +12,7 @@ public class CameraSizeFixer : MonoBehaviour {
 
     float cameraHeight;
     float desiredAspect = 16f / 9f;
+    float oldAspect;
 
     // Use this for initialization
     void Start () {
@@ -21,19 +22,24 @@ public class CameraSizeFixer : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if(screenSize.x != camera.pixelWidth || screenSize.y != camera.pixelHeight)
+        if (oldAspect != camera.aspect)
         {
             FixCameraSize();
         }
-
     }
 
     void FixCameraSize()
     {
+        oldAspect = camera.aspect;
         if (cameraHeight * desiredAspect > cameraHeight * camera.aspect)
         {
+            print("works" + camera.aspect);
             float ratio = desiredAspect / camera.aspect;
             Camera.main.orthographicSize = cameraHeight * ratio;
+        }
+        else
+        {
+            camera.orthographicSize = cameraHeight;
         }
     }
 }

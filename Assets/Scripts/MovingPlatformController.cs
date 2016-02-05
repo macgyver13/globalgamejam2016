@@ -65,7 +65,7 @@ public class MovingPlatformController : MonoBehaviour {
 
    Vector2 GetWallPosition()
     {
-        Debug.Log("You know");
+        //Debug.Log("You know");
         lookDirections.Reverse();
         RaycastHit2D hit = new RaycastHit2D();
         for (int i = 0; i < lookDirections.Count; i++)
@@ -73,7 +73,7 @@ public class MovingPlatformController : MonoBehaviour {
             hit = Physics2D.Raycast(transform.position, lookDirections[i], rayDistance);
             if (hit.collider != null && (hit.collider.gameObject.tag == "Floor" || hit.collider.gameObject.tag == "Wall"))
             {
-                Debug.Log(hit.collider.gameObject.name);
+                //Debug.Log(hit.collider.gameObject.name);
                 Vector2 movePosition = hit.point;
                 return AdjustPosition(movePosition);
             }
@@ -100,7 +100,7 @@ public class MovingPlatformController : MonoBehaviour {
 
     void StartTween(Vector3 moveToOrRotatePosition, string tweenType)
     {
-        Debug.Log(moveToOrRotatePosition);
+        //Debug.Log(moveToOrRotatePosition);
         if (moveToOrRotatePosition != Vector3.zero)
         {
             if (hasTween)
@@ -143,7 +143,7 @@ public class MovingPlatformController : MonoBehaviour {
         iTween[] tweens =  gameObject.GetComponents<iTween>();
         for (int i = 0; i < tweens.Length; i++)
         {
-            Debug.Log(tweens[i]._name);
+            //Debug.Log(tweens[i]._name);
             if (tweens[i]._name == tweenType)
             {
                 Destroy(tweens[i]);
@@ -171,7 +171,7 @@ public class MovingPlatformController : MonoBehaviour {
             if (lastObjectCollided == null || lastObjectCollided != otherObject || rotate)
             {
                 lastObjectCollided = otherObject;
-                Debug.Log("Stuff");
+                //Debug.Log("Stuff");
                 if (rotate)
                     StartTween(rotationAngles, "rotation");
                 else

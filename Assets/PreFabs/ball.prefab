@@ -28,7 +28,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 157348}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.03, y: -2.23, z: 0}
+  m_LocalPosition: {x: -10.17, y: -2.56, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -169,7 +169,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: ac69c683c91a8fb469c10d018585fb00, type: 3}
   - {fileID: 8300000, guid: 2179a4d7e465cbf4194e18f029c19a48, type: 3}
   - {fileID: 8300000, guid: 9894783e298c8824196f09c06e98acc2, type: 3}
-  gravityScale: 6
+  gravityScale: 7
   slowSpeed: 10
   nomralSpeed: 50
   fastSpeed: 30
@@ -180,6 +180,8 @@ MonoBehaviour:
   mediumJumpForce: 1300
   largeJumpForce: 1000
   gravityVector: {x: 0, y: 0}
+  canControl: 1
+  isOnGround: 1
   jointConnectTo: {fileID: 0}
 --- !u!212 &21233086
 SpriteRenderer:

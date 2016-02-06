@@ -50,7 +50,7 @@ public class BallController : MonoBehaviour {
 	void Start () {
 		rigidbody = transform.GetComponent<Rigidbody2D>();
 	}
-	void Update() {
+	void FixedUpdate() {
         if (gravityVector.x > 0 || gravityVector.x < 0)
         {
             Vector2 newVelocity = Vector2.ClampMagnitude(new Vector2(0, rigidbody.velocity.y), maxVelocity);
